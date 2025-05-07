@@ -4,86 +4,167 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Diviértete Animaciones</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #fff7f2;
-      color: #333;
+    :root {
+      --rosa-claro: #ffe6ec;
+      --rosa-principal: #d44e8f;
+      --beige-fondo: #fff7f2;
+      --verde-whatsapp: #25D366;
+    }
+
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--beige-fondo);
+      color: #333;
       text-align: center;
+      line-height: 1.6;
     }
+
     header {
+      background: var(--rosa-claro);
       padding: 2rem 1rem;
-      background: #ffe6ec;
     }
+
     header img {
       max-width: 200px;
       height: auto;
+      margin-bottom: 1rem;
     }
+
     h1 {
       font-size: 2rem;
-      margin: 1rem 0 0.5rem;
+      margin-bottom: 1rem;
     }
+
+    nav {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
     nav a {
-      margin: 0 1rem;
       text-decoration: none;
-      color: #d44e8f;
-      font-weight: bold;
+      color: var(--rosa-principal);
+      font-weight: 600;
     }
+
     section {
       padding: 2rem 1rem;
     }
+
     .btn {
       display: inline-block;
       margin: 1rem;
       padding: 1rem 2rem;
-      background: #d44e8f;
+      background: var(--rosa-principal);
       color: white;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s;
     }
+
+    .btn:hover {
+      background: #b53f78;
+    }
+
     footer {
-      background: #ffe6ec;
+      background: var(--rosa-claro);
       padding: 1rem;
       font-size: 0.9rem;
     }
-    .boton-whatsapp {
+
+    .whatsapp-container {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: #25D366;
+      background-color: var(--verde-whatsapp);
       color: white;
-      font-size: 28px;
-      text-align: center;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      line-height: 60px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 30px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      z-index: 1000;
       text-decoration: none;
-      transition: transform 0.2s ease;
+      font-weight: bold;
+      font-size: 16px;
+      z-index: 1000;
+      transition: transform 0.3s ease;
     }
-    .boton-whatsapp:hover {
-      transform: scale(1.1);
+
+    .whatsapp-container:hover {
+      transform: scale(1.05);
+    }
+
+    .whatsapp-icon {
+      width: 28px;
+      height: 28px;
+    }
+
+    /* Mostrar solo el ícono en pantallas pequeñas */
+    @media (max-width: 500px) {
+      .whatsapp-text {
+        display: none;
+      }
+
+      .whatsapp-container {
+        padding: 12px;
+        border-radius: 50%;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Botón de WhatsApp -->
-  <a href="https://wa.me/34648759373" 
-     class="boton-whatsapp" 
-     target="_blank" 
-     aria-label="Chat en WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="34" height="34" fill="white">
+  <!-- Botón WhatsApp -->
+  <a href="https://wa.me/34648759373" class="whatsapp-container" target="_blank" aria-label="Chat en WhatsApp">
+    <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="white">
       <path d="M16.003 3C9.372 3 4 8.372 4 15c0 2.64.845 5.082 2.274 7.077L4 29l7.139-2.249A12.918 12.918 0 0 0 16.003 27C22.628 27 28 21.628 28 15S22.628 3 16.003 3zm0 2c6.065 0 11 4.935 11 11s-4.935 11-11 11a10.914 10.914 0 0 1-5.468-1.479l-.388-.232-4.016 1.266 1.32-3.707-.244-.389A10.91 10.91 0 0 1 6 15c0-6.065 4.935-11 11-11z"/>
     </svg>
+    <span class="whatsapp-text">Escríbenos</span>
   </a>
 
   <header>
     <img src="logo.jpg" alt="Diviértete Animaciones Logo" />
     <h1>¿Tienes un evento? ¡Pásatelo en grande con Diviértete!</h1>
-    <img src
+    <img src="FLAYEREVENTOS.JPG" alt="Flayer Diviértete Animaciones" />
+    <p style="margin-top: 1rem; font-weight: bold;">
+      ¡Síguenos en nuestras redes o contáctanos por WhatsApp!
+    </p>
+    <nav>
+      <a href="https://www.instagram.com/divierteteanimaciones/" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@divirtete.animaciones09" target="_blank">TikTok</a>
+      <a href="https://www.facebook.com/profile.php?id=61554295951211" target="_blank">Facebook</a>
+      <a href="https://www.google.com/search?q=DIVIÉRTETE+ANIMACIONES+INFANTILES" target="_blank">Google</a>
+    </nav>
+  </header>
+
+  <section>
+    <h3 style="font-size: 1.5rem; color: var(--rosa-principal);">Servicios</h3>
+    <p>Cumpleaños, bodas, comuniones, fiestas infantiles y más.</p>
+    <p>Ofrecemos animaciones de 1 o 2 horas siempre con música 🎶 y juegos personalizados 🎊 según los gustos del protagonista.</p>
+    <p>También contamos con servicios extra como Pintacaras 🎉, Globoflexia 🎈, Talleres 🎨, personajes Disney 🥳 ¡y regalo para todos!</p>
+  </section>
+
+  <section>
+    <a class="btn" href="galeria_videos_diviertete.html">Galería de Videos</a>
+    <a class="btn" href="galeria_imagenes_diviertete.html">Galería de Fotos</a>
+  </section>
+
+  <footer>
+    © 2025 Diviértete Animaciones
+  </footer>
+
+</body>
+</html>
