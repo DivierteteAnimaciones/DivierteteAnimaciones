@@ -4,167 +4,207 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Diviértete Animaciones</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --rosa-claro: #ffe6ec;
-      --rosa-principal: #d44e8f;
-      --beige-fondo: #fff7f2;
-      --verde-whatsapp: #25D366;
-    }
-
-    * {
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff7f2;
+      color: #333;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--beige-fondo);
-      color: #333;
       text-align: center;
-      line-height: 1.6;
     }
 
     header {
-      background: var(--rosa-claro);
       padding: 2rem 1rem;
+      background: #ffe6ec;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+      transition: background-color 0.3s ease;
+    }
+
+    header.sticky {
+      background-color: #d44e8f;
     }
 
     header img {
       max-width: 200px;
       height: auto;
-      margin-bottom: 1rem;
     }
 
     h1 {
       font-size: 2rem;
-      margin-bottom: 1rem;
+      margin: 1rem 0 0.5rem;
     }
 
     nav {
-      margin-top: 1rem;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
+      margin-top: 20px;
     }
 
     nav a {
+      margin: 0 1rem;
       text-decoration: none;
-      color: var(--rosa-principal);
-      font-weight: 600;
+      color: #d44e8f;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      color: #25D366; /* verde */
     }
 
     section {
       padding: 2rem 1rem;
+      margin-top: 120px;
     }
 
     .btn {
       display: inline-block;
       margin: 1rem;
       padding: 1rem 2rem;
-      background: var(--rosa-principal);
+      background: #d44e8f;
       color: white;
       text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    .btn:hover {
-      background: #b53f78;
+      border-radius: 5px;
     }
 
     footer {
-      background: var(--rosa-claro);
+      background: #ffe6ec;
       padding: 1rem;
       font-size: 0.9rem;
     }
 
-    .whatsapp-container {
+    .boton-whatsapp {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: var(--verde-whatsapp);
+      background-color: #25D366;
       color: white;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 16px;
-      border-radius: 30px;
+      font-size: 28px;
+      text-align: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      line-height: 60px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
       z-index: 1000;
-      transition: transform 0.3s ease;
+      text-decoration: none;
+      transition: transform 0.2s ease;
     }
 
-    .whatsapp-container:hover {
-      transform: scale(1.05);
+    .boton-whatsapp:hover {
+      transform: scale(1.1);
     }
 
-    .whatsapp-icon {
-      width: 28px;
-      height: 28px;
-    }
-
-    /* Mostrar solo el ícono en pantallas pequeñas */
-    @media (max-width: 500px) {
-      .whatsapp-text {
-        display: none;
-      }
-
-      .whatsapp-container {
-        padding: 12px;
-        border-radius: 50%;
-      }
+    .sticky .boton-whatsapp {
+      background-color: #d44e8f; /* Cuando el header se pega, el icono también se adapta */
     }
   </style>
 </head>
-
 <body>
-
-  <!-- Botón WhatsApp -->
-  <a href="https://wa.me/34648759373" class="whatsapp-container" target="_blank" aria-label="Chat en WhatsApp">
-    <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="white">
-      <path d="M16.003 3C9.372 3 4 8.372 4 15c0 2.64.845 5.082 2.274 7.077L4 29l7.139-2.249A12.918 12.918 0 0 0 16.003 27C22.628 27 28 21.628 28 15S22.628 3 16.003 3zm0 2c6.065 0 11 4.935 11 11s-4.935 11-11 11a10.914 10.914 0 0 1-5.468-1.479l-.388-.232-4.016 1.266 1.32-3.707-.244-.389A10.91 10.91 0 0 1 6 15c0-6.065 4.935-11 11-11z"/>
-    </svg>
-    <span class="whatsapp-text">Escríbenos</span>
-  </a>
-
   <header>
     <img src="logo.jpg" alt="Diviértete Animaciones Logo" />
     <h1>¿Tienes un evento? ¡Pásatelo en grande con Diviértete!</h1>
     <img src="FLAYEREVENTOS.JPG" alt="Flayer Diviértete Animaciones" />
-    <p style="margin-top: 1rem; font-weight: bold;">
-      ¡Síguenos en nuestras redes o contáctanos por WhatsApp!
-    </p>
     <nav>
-      <a href="https://www.instagram.com/divierteteanimaciones/" target="_blank">Instagram</a>
-      <a href="https://www.tiktok.com/@divirtete.animaciones09" target="_blank">TikTok</a>
-      <a href="https://www.facebook.com/profile.php?id=61554295951211" target="_blank">Facebook</a>
-      <a href="https://www.google.com/search?q=DIVIÉRTETE+ANIMACIONES+INFANTILES" target="_blank">Google</a>
+      <a href="#inicio">Inicio</a>
+      <a href="#sobre-nosotros">Sobre Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#pide-presupuesto">Pide Presupuesto</a>
+      <a href="#contacto">Contacto</a>
     </nav>
   </header>
 
-  <section>
-    <h3 style="font-size: 1.5rem; color: var(--rosa-principal);">Servicios</h3>
-    <p>Cumpleaños, bodas, comuniones, fiestas infantiles y más.</p>
-    <p>Ofrecemos animaciones de 1 o 2 horas siempre con música 🎶 y juegos personalizados 🎊 según los gustos del protagonista.</p>
-    <p>También contamos con servicios extra como Pintacaras 🎉, Globoflexia 🎈, Talleres 🎨, personajes Disney 🥳 ¡y regalo para todos!</p>
+  <section id="inicio">
+    <h3>Bienvenido a Diviértete Animaciones</h3>
+    <p>¡Haz de tu evento algo inolvidable!</p>
   </section>
 
-  <section>
-    <a class="btn" href="galeria_videos_diviertete.html">Galería de Videos</a>
-    <a class="btn" href="galeria_imagenes_diviertete.html">Galería de Fotos</a>
+  <section id="sobre-nosotros">
+    <h3>Sobre Nosotros</h3>
+    <p>¡Hola Hoooola!!!!!!! 👋🏻👋🏼</p>
+    <p>¡¡Ha llegado el momento de presentarnos!! 🥳🎉 Nosotros somos Robert y Ainhoa, animadores infantiles con muuuchas ganas de pasárnoslo muy bien. 🤩🤩</p>
+    <p>Nuestra gran pasión es jugar también nos encanta bailar, cantar y compartir tiempo de calidad. Somos especialistas en hacer de tu día un día inolvidable.</p>
+    <p>Podemos formar parte de tu cumpleaños, comunión, boda, bautizo y muuuchos eventos públicos infantiles.🥳🥳🥳</p>
+    <p>Gracias por confiar en nosotros, gracias por confiar en DIVIÉRTETE ANIMACIONES.</p>
+    <img src="imagen1.jpg" alt="Robert y Ainhoa" />
+  </section>
+
+  <section id="servicios">
+    <h3>Servicios</h3>
+    <ul>
+      <li>Animación Base</li>
+      <li>Pintacaras</li>
+      <li>Globoflexia</li>
+      <li>Personaje Disney</li>
+      <li>Talleres</li>
+      <li>Cuenta Cuentos</li>
+      <li>Servicio Comedor</li>
+      <li>Servicio Canguro</li>
+    </ul>
+  </section>
+
+  <section id="pide-presupuesto">
+    <h3>Pide tu Presupuesto</h3>
+    <form action="mailto:divierteteanimaciones09@gmail.com" method="post" enctype="text/plain">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required><br><br>
+
+      <label for="email">Correo Electrónico:</label>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="whatsapp">Número de WhatsApp:</label>
+      <input type="tel" id="whatsapp" name="whatsapp" required><br><br>
+
+      <label for="num_asistentes">Número de Asistentes:</label>
+      <input type="number" id="num_asistentes" name="num_asistentes" required><br><br>
+
+      <label for="fecha">Fecha del Evento:</label>
+      <input type="date" id="fecha" name="fecha" required><br><br>
+
+      <label for="lugar">Lugar del Evento:</label>
+      <input type="text" id="lugar" name="lugar" required><br><br>
+
+      <label for="hora">Hora del Evento:</label>
+      <input type="time" id="hora" name="hora" required><br><br>
+
+      <label for="tipo_evento">Tipo de Evento:</label>
+      <select id="tipo_evento" name="tipo_evento" required>
+        <option value="cumpleaños">Cumpleaños</option>
+        <option value="boda">Boda</option>
+        <option value="comunion">Comunión</option>
+        <option value="bautizo">Bautizo</option>
+        <option value="fiesta_popular">Fiesta Popular</option>
+      </select><br><br>
+
+      <label for="servicios">Servicios Deseados:</label><br>
+      <input type="checkbox" id="animacion_base" name="servicios" value="Animación Base"> Animación Base<br>
+      <input type="checkbox" id="pintacaras" name="servicios" value="Pintacaras"> Pintacaras<br>
+      <input type="checkbox" id="globoflexia" name="servicios" value="Globoflexia"> Globoflexia<br>
+      <input type="checkbox" id="personaje_disney" name="servicios" value="Personaje Disney"> Personaje Disney<br>
+      <input type="checkbox" id="talleres" name="servicios" value="Talleres"> Talleres<br>
+      <input type="checkbox" id="cuenta_cuentos" name="servicios" value="Cuenta Cuentos"> Cuenta Cuentos<br>
+      <input type="checkbox" id="servicio_comedor" name="servicios" value="Servicio Comedor"> Servicio Comedor<br>
+      <input type="checkbox" id="servicio_canguro" name="servicios" value="Servicio Canguro"> Servicio Canguro<br><br>
+
+      <label for="informacion">Información Relevante:</label><br>
+      <textarea id="informacion" name="informacion" rows="4" cols="50"></textarea><br><br>
+
+      <input type="submit" value="Enviar Presupuesto">
+    </form>
+  </section>
+
+  <section id="contacto">
+    <h3>Contacto</h3>
+    <a href="https://www.instagram.com/divierteteanimaciones/" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@divirtete.animaciones09" target="_blank">TikTok</a>
+    <a href="https://www.facebook.com/profile.php?id=61554295951211" target="_blank">Facebook</a>
+    <a href="https://wa.me/34648759373" target="_blank">WhatsApp</a>
   </section>
 
   <footer>
     © 2025 Diviértete Animaciones
   </footer>
 
-</body>
-</html>
+ 
