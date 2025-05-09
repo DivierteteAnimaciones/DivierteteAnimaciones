@@ -1,210 +1,213 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Diviértete Animaciones - Servicios de animación para todas las edades en Uruguay.">
   <title>Diviértete Animaciones</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #fff7f2;
-      color: #333;
       margin: 0;
-      padding: 0;
-      text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff8fb;
+      color: #333;
     }
 
     header {
-      padding: 2rem 1rem;
-      background: #ffe6ec;
-      position: fixed;
-      width: 100%;
+      position: sticky;
       top: 0;
-      z-index: 100;
-      transition: background-color 0.3s ease;
-    }
-
-    header.sticky {
-      background-color: #d44e8f;
+      background-color: #ffc0cb;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      z-index: 1000;
     }
 
     header img {
-      max-width: 200px;
-      height: auto;
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin: 1rem 0 0.5rem;
-    }
-
-    nav {
-      margin-top: 20px;
+      height: 50px;
     }
 
     nav a {
-      margin: 0 1rem;
+      margin: 0 15px;
       text-decoration: none;
-      color: #d44e8f;
+      color: #333;
       font-weight: bold;
-      font-size: 1.1rem;
     }
 
     nav a:hover {
-      color: #25D366; /* verde */
+      color: #007f4e;
+    }
+
+    .hero {
+      text-align: center;
+      background: url('img/ainhoa-robert.jpg') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2em;
+      text-shadow: 2px 2px 5px black;
     }
 
     section {
-      padding: 2rem 1rem;
-      margin-top: 120px;
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: auto;
     }
 
-    .btn {
-      display: inline-block;
-      margin: 1rem;
-      padding: 1rem 2rem;
-      background: #d44e8f;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
+    h2 {
+      color: #e91e63;
+      margin-bottom: 20px;
+    }
+
+    .servicios, .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .servicio, .foto-video {
+      flex: 1 1 calc(33% - 40px);
+      background: #ffe6eb;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .galeria-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+    }
+
+    .galeria-slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .foto-video {
+      flex: 0 0 auto;
+      width: 250px;
+    }
+
+    form input, form textarea, form button {
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    form button {
+      background: #ffc107;
+      border: none;
+      font-weight: bold;
     }
 
     footer {
-      background: #ffe6ec;
-      padding: 1rem;
-      font-size: 0.9rem;
+      text-align: center;
+      padding: 20px;
+      background-color: #f8bbd0;
     }
 
-    .boton-whatsapp {
+    #whatsapp {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: #25D366;
+      background: #25D366;
       color: white;
-      font-size: 28px;
-      text-align: center;
+      border-radius: 50%;
       width: 60px;
       height: 60px;
-      border-radius: 50%;
-      line-height: 60px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
       z-index: 1000;
-      text-decoration: none;
-      transition: transform 0.2s ease;
     }
 
-    .boton-whatsapp:hover {
-      transform: scale(1.1);
-    }
-
-    .sticky .boton-whatsapp {
-      background-color: #d44e8f; /* Cuando el header se pega, el icono también se adapta */
+    @media (max-width: 768px) {
+      .servicio, .foto-video {
+        flex: 1 1 100%;
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
-    <img src="logo.jpg" alt="Diviértete Animaciones Logo" />
-    <h1>¿Tienes un evento? ¡Pásatelo en grande con Diviértete!</h1>
-    <img src="FLAYEREVENTOS.JPG" alt="Flayer Diviértete Animaciones" />
+    <img src="img/logo.png" alt="Logo Diviértete">
     <nav>
       <a href="#inicio">Inicio</a>
-      <a href="#sobre-nosotros">Sobre Nosotros</a>
+      <a href="#sobre">Sobre Nosotros</a>
       <a href="#servicios">Servicios</a>
-      <a href="#pide-presupuesto">Pide Presupuesto</a>
+      <a href="#galeria">Galería</a>
+      <a href="#presupuesto">Pide Presupuesto</a>
       <a href="#contacto">Contacto</a>
     </nav>
   </header>
 
-  <section id="inicio">
-    <h3>Bienvenido a Diviértete Animaciones</h3>
-    <p>¡Haz de tu evento algo inolvidable!</p>
+  <section class="hero" id="inicio">
+    <div>¡Bienvenidos a Diviértete Animaciones!</div>
   </section>
 
-  <section id="sobre-nosotros">
-    <h3>Sobre Nosotros</h3>
-    <p>¡Hola Hoooola!!!!!!! 👋🏻👋🏼</p>
-    <p>¡¡Ha llegado el momento de presentarnos!! 🥳🎉 Nosotros somos Robert y Ainhoa, animadores infantiles con muuuchas ganas de pasárnoslo muy bien. 🤩🤩</p>
-    <p>Nuestra gran pasión es jugar también nos encanta bailar, cantar y compartir tiempo de calidad. Somos especialistas en hacer de tu día un día inolvidable.</p>
-    <p>Podemos formar parte de tu cumpleaños, comunión, boda, bautizo y muuuchos eventos públicos infantiles.🥳🥳🥳</p>
-    <p>Gracias por confiar en nosotros, gracias por confiar en DIVIÉRTETE ANIMACIONES.</p>
-    <img src="imagen1.jpg" alt="Robert y Ainhoa" />
+  <section id="sobre">
+    <h2>Sobre Nosotros</h2>
+    <p>Somos Robert y Ainhoa, dedicados a crear sonrisas en cada evento. Con años de experiencia en animaciones, hacemos que cada fiesta sea única e inolvidable.</p>
+    <img src="img/nosotros.jpg" alt="Robert y Ainhoa" style="width: 100%; max-width: 600px; border-radius: 15px;">
   </section>
 
   <section id="servicios">
-    <h3>Servicios</h3>
-    <ul>
-      <li>Animación Base</li>
-      <li>Pintacaras</li>
-      <li>Globoflexia</li>
-      <li>Personaje Disney</li>
-      <li>Talleres</li>
-      <li>Cuenta Cuentos</li>
-      <li>Servicio Comedor</li>
-      <li>Servicio Canguro</li>
-    </ul>
+    <h2>Servicios</h2>
+    <div class="servicios">
+      <div class="servicio">Animación Infantil</div>
+      <div class="servicio">Títeres y Cuentacuentos</div>
+      <div class="servicio">Juegos Interactivos</div>
+    </div>
   </section>
 
-  <section id="pide-presupuesto">
-    <h3>Pide tu Presupuesto</h3>
-    <form action="mailto:divierteteanimaciones09@gmail.com" method="post" enctype="text/plain">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required><br><br>
+  <section id="galeria">
+    <h2>Galería de Fotos y Videos</h2>
+    <div class="galeria-slider">
+      <div class="foto-video"><img src="img/foto1.jpg" alt="Animación 1" style="width:100%; border-radius: 10px;"></div>
+      <div class="foto-video"><img src="img/foto2.jpg" alt="Animación 2" style="width:100%; border-radius: 10px;"></div>
+      <div class="foto-video"><video src="videos/video1.mp4" controls style="width:100%; border-radius: 10px;"></video></div>
+    </div>
+  </section>
 
-      <label for="email">Correo Electrónico:</label>
-      <input type="email" id="email" name="email" required><br><br>
-
-      <label for="whatsapp">Número de WhatsApp:</label>
-      <input type="tel" id="whatsapp" name="whatsapp" required><br><br>
-
-      <label for="num_asistentes">Número de Asistentes:</label>
-      <input type="number" id="num_asistentes" name="num_asistentes" required><br><br>
-
-      <label for="fecha">Fecha del Evento:</label>
-      <input type="date" id="fecha" name="fecha" required><br><br>
-
-      <label for="lugar">Lugar del Evento:</label>
-      <input type="text" id="lugar" name="lugar" required><br><br>
-
-      <label for="hora">Hora del Evento:</label>
-      <input type="time" id="hora" name="hora" required><br><br>
-
-      <label for="tipo_evento">Tipo de Evento:</label>
-      <select id="tipo_evento" name="tipo_evento" required>
-        <option value="cumpleaños">Cumpleaños</option>
-        <option value="boda">Boda</option>
-        <option value="comunion">Comunión</option>
-        <option value="bautizo">Bautizo</option>
-        <option value="fiesta_popular">Fiesta Popular</option>
-      </select><br><br>
-
-      <label for="servicios">Servicios Deseados:</label><br>
-      <input type="checkbox" id="animacion_base" name="servicios" value="Animación Base"> Animación Base<br>
-      <input type="checkbox" id="pintacaras" name="servicios" value="Pintacaras"> Pintacaras<br>
-      <input type="checkbox" id="globoflexia" name="servicios" value="Globoflexia"> Globoflexia<br>
-      <input type="checkbox" id="personaje_disney" name="servicios" value="Personaje Disney"> Personaje Disney<br>
-      <input type="checkbox" id="talleres" name="servicios" value="Talleres"> Talleres<br>
-      <input type="checkbox" id="cuenta_cuentos" name="servicios" value="Cuenta Cuentos"> Cuenta Cuentos<br>
-      <input type="checkbox" id="servicio_comedor" name="servicios" value="Servicio Comedor"> Servicio Comedor<br>
-      <input type="checkbox" id="servicio_canguro" name="servicios" value="Servicio Canguro"> Servicio Canguro<br><br>
-
-      <label for="informacion">Información Relevante:</label><br>
-      <textarea id="informacion" name="informacion" rows="4" cols="50"></textarea><br><br>
-
-      <input type="submit" value="Enviar Presupuesto">
+  <section id="presupuesto">
+    <h2>Pide tu Presupuesto</h2>
+    <form onsubmit="event.preventDefault(); alert('¡Gracias por tu solicitud! Te responderemos pronto.');">
+      <input type="text" name="nombre" placeholder="Nombre" required>
+      <input type="email" name="email" placeholder="Correo" required>
+      <textarea name="mensaje" placeholder="Cuéntanos qué necesitas" required></textarea>
+      <button type="submit">Enviar</button>
     </form>
   </section>
 
   <section id="contacto">
-    <h3>Contacto</h3>
-    <a href="https://www.instagram.com/divierteteanimaciones/" target="_blank">Instagram</a>
-    <a href="https://www.tiktok.com/@divirtete.animaciones09" target="_blank">TikTok</a>
-    <a href="https://www.facebook.com/profile.php?id=61554295951211" target="_blank">Facebook</a>
-    <a href="https://wa.me/34648759373" target="_blank">WhatsApp</a>
+    <h2>Contacto</h2>
+    <p>Síguenos en redes sociales:</p>
+    <p>
+      <a href="https://www.instagram.com/diviertete.animaciones" target="_blank">Instagram</a> |
+      <a href="https://www.facebook.com/DivierteteAnimaciones" target="_blank">Facebook</a>
+    </p>
   </section>
 
   <footer>
-    © 2025 Diviértete Animaciones
+    <p>© 2025 Diviértete Animaciones. Todos los derechos reservados.</p>
   </footer>
 
- 
+  <a id="whatsapp" href="https://wa.me/598XXXXXXXX" target="_blank" title="Escríbenos por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</body>
+
+</html>
