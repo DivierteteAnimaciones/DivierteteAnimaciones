@@ -332,22 +332,46 @@
         <option>Fiesta temática</option>
         <option>Otros</option>
       </select>
-      <select name="Tipo de servicio" multiple required>
-        <option>Animación base 1 hora</option>
-        <option>Animación base 2 horas</option>
-        <option>Pintacaras</option>
-        <option>Globoflexia</option>
-        <option>Personaje Disney</option>
-        <option>Talleres</option>
-        <option>Cuentacuentos</option>
-        <option>Servicio de comedor</option>
-        <option>Canguro</option>
-      </select>
-      <textarea name="Comentarios" placeholder="Comentarios adicionales..."></textarea>
-      <input type="hidden" name="_next" value="https://divierteteanimaciones.github.io/DivierteteAnimaciones/agradecimiento.html">
-      <button type="submit">Enviar presupuesto</button>
-    </form>
-  </section>
+      <form action="https://formspree.io/f/movdpdla" method="POST">
+  <input type="text" name="nombre" placeholder="Nombre" required>
+  <input type="email" name="email" placeholder="Correo electrónico" required>
+  <input type="tel" name="telefono" placeholder="Número de WhatsApp" required>
+  <input type="number" name="asistentes" placeholder="Número de asistentes" required>
+  <input type="date" name="fecha" placeholder="Fecha del evento" required>
+  <input type="text" name="lugar" placeholder="Lugar del evento" required>
+  <input type="text" name="edad" placeholder="Edad de los peques (aproximada)" required>
+
+  <label for="tipoEvento">Tipo de evento:</label>
+  <select id="tipoEvento" name="tipoEvento" required>
+    <option value="cumpleaños">Cumpleaños</option>
+    <option value="comunion">Comunión</option>
+    <option value="boda">Boda</option>
+    <option value="bautizo">Bautizo</option>
+    <option value="fiesta_tematica">Fiesta temática</option>
+    <option value="otros">Otros</option>
+  </select>
+
+  <label>Tipo de servicio:</label>
+  <div style="margin-bottom: 15px;">
+    <label><input type="checkbox" name="servicio[]" value="animacion_1h"> Animación base 1 hora</label><br>
+    <label><input type="checkbox" name="servicio[]" value="animacion_2h"> Animación base 2 horas</label><br>
+    <label><input type="checkbox" name="servicio[]" value="pintacaras"> Pintacaras</label><br>
+    <label><input type="checkbox" name="servicio[]" value="globoflexia"> Globoflexia</label><br>
+    <label><input type="checkbox" name="servicio[]" value="personaje_disney"> Personaje Disney</label><br>
+    <label><input type="checkbox" name="servicio[]" value="talleres"> Talleres</label><br>
+    <label><input type="checkbox" name="servicio[]" value="cuentacuentos"> Cuentacuentos</label><br>
+    <label><input type="checkbox" name="servicio[]" value="comedor"> Servicio de comedor</label><br>
+    <label><input type="checkbox" name="servicio[]" value="canguro"> Canguro</label>
+  </div>
+
+  <textarea name="comentarios" placeholder="Comentarios adicionales"></textarea>
+
+  <!-- Configuraciones ocultas -->
+  <input type="hidden" name="_subject" value="Nueva solicitud de presupuesto desde la web">
+  <input type="hidden" name="_next" value="https://divierteteanimaciones.github.io/DivierteteAnimaciones/gracias.html">
+
+  <button type="submit">Enviar presupuesto</button>
+</form>
 
   <section id="contacto">
     <h2>Contacto</h2>
