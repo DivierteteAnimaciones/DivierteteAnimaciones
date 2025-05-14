@@ -41,133 +41,18 @@
       color: #007f4e;
     }
 
-    .hero {
-      text-align: center;
-      background: url('imagen1.jpg') center/cover no-repeat;
-      height: 60vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 2em;
-      text-shadow: 2px 2px 5px black;
-      flex-direction: column;
-    }
-
-    .hero img {
-      margin-top: 20px;
-      width: 80%;
-      max-width: 500px;
-      border-radius: 10px;
-    }
-
-    section {
-      padding: 50px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    h2 {
-      color: #e91e63;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .sobre {
-      text-align: center;
-    }
-
-    .sobre img {
-      width: 100%;
-      max-width: 600px;
-      border-radius: 15px;
-      display: block;
-      margin: 20px auto 0;
-    }
-
-    .servicios {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-
-    .card {
-      perspective: 1000px;
-      width: 250px;
-      height: 250px;
-    }
-
-    .card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
-    }
-
-    .card:hover .card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .card-front, .card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      background-color: #ffe6eb;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-
-    .card-back {
-      transform: rotateY(180deg);
-      flex-direction: column;
-    }
-
-    .card-back img {
-      width: 100%;
-      max-height: 100px;
-      object-fit: cover;
-      margin-top: 10px;
-      border-radius: 8px;
-    }
-
-    .galeria-slider {
-      display: flex;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-    }
-
-    .galeria-slider::-webkit-scrollbar {
-      display: none;
-    }
-
-    .foto-video {
-      flex: 0 0 auto;
-      width: 250px;
-      margin-right: 20px;
-    }
-
-    .foto-video img, .foto-video video {
-      width: 100%;
-      border-radius: 10px;
-    }
-
     form {
       background-color: #ffe6eb;
       padding: 20px;
       border-radius: 15px;
       max-width: 600px;
-      margin: auto;
+      margin: 40px auto;
     }
 
-    form input, form textarea, form select, form button {
+    form input,
+    form textarea,
+    form select,
+    form button {
       display: block;
       width: 100%;
       margin-bottom: 15px;
@@ -180,18 +65,40 @@
       background: #ffc107;
       border: none;
       font-weight: bold;
+      cursor: pointer;
     }
 
     .checkbox-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
+      flex-wrap: wrap;
       gap: 10px;
     }
 
-    footer {
+    .checkbox-grid label {
+      flex: 1 1 45%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .contacto-info {
       text-align: center;
-      padding: 20px;
-      background-color: #f8bbd0;
+      margin-top: 40px;
+    }
+
+    .contacto-info img {
+      max-width: 150px;
+      margin: 10px auto;
+      display: block;
+    }
+
+    .contacto-info i {
+      margin: 0 20px;
+      font-size: 3em;
     }
 
     #whatsapp {
@@ -211,93 +118,48 @@
       z-index: 1000;
     }
 
-    .contacto-info {
-      text-align: center;
-    }
-
-    .contacto-info img {
-      max-width: 150px;
-      margin: 10px auto;
-      display: block;
-    }
-
-    .contacto-info i {
-      margin: 0 10px;
-      font-size: 2em;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      nav a {
-        margin: 5px 0;
-        font-size: 1.1em;
-      }
-
-      .card {
-        width: 100%;
-        height: auto;
-      }
-
-      .card-back img {
-        max-height: 150px;
-      }
-
-      form {
-        width: 95%;
-      }
-
-      .checkbox-grid {
-        grid-template-columns: 1fr;
+    @media (max-width: 600px) {
+      .checkbox-grid label {
+        flex: 1 1 100%;
       }
     }
   </style>
 </head>
 <body>
-  <!-- contenido original intacto hasta el formulario -->
-  <section id="presupuesto">
-    <h2>Pide tu Presupuesto</h2>
-    <form action="https://formsubmit.co/divierteteanimaciones09@gmail.com" method="POST">
-      <input type="text" name="nombre" placeholder="Nombre" required>
-      <input type="email" name="email" placeholder="Correo electrónico" required>
-      <input type="tel" name="telefono" placeholder="Número de WhatsApp" required>
-      <input type="number" name="asistentes" placeholder="Número de asistentes" required>
-      <input type="date" name="fecha" required>
-      <input type="text" name="lugar" placeholder="Lugar del evento" required>
-      <input type="text" name="edad" placeholder="Edad de los peques (aproximada)" required>
+  <form action="https://formsubmit.co/divierteteanimaciones09@gmail.com" method="POST">
+    <h2>Solicita tu Presupuesto</h2>
+    <input type="text" name="nombre" placeholder="Tu nombre" required>
+    <input type="email" name="email" placeholder="Tu correo electrónico" required>
+    <input type="text" name="telefono" placeholder="Teléfono de contacto" required>
+    <input type="date" name="fecha" required>
+    <input type="text" name="direccion" placeholder="Dirección del evento" required>
+    <div class="checkbox-grid">
+      <label><input type="checkbox" name="servicio[]" value="Animación"> Animación</label>
+      <label><input type="checkbox" name="servicio[]" value="Castillos Hinchables"> Castillos Hinchables</label>
+      <label><input type="checkbox" name="servicio[]" value="Maquillaje Fantasía"> Maquillaje Fantasía</label>
+      <label><input type="checkbox" name="servicio[]" value="Globoflexia"> Globoflexia</label>
+      <label><input type="checkbox" name="servicio[]" value="Pompas Gigantes"> Pompas Gigantes</label>
+      <label><input type="checkbox" name="servicio[]" value="Disfraces"> Disfraces</label>
+    </div>
+    <textarea name="mensaje" placeholder="Déjanos tus comentarios o peticiones especiales" rows="4"></textarea>
+    <button type="submit">Enviar Presupuesto</button>
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://tusitio.com/gracias.html">
+  </form>
 
-      <label for="tipoEvento">Tipo de evento:</label>
-      <select id="tipoEvento" name="tipoEvento" required>
-        <option value="cumpleaños">Cumpleaños</option>
-        <option value="comunion">Comunión</option>
-        <option value="boda">Boda</option>
-        <option value="bautizo">Bautizo</option>
-        <option value="fiesta_tematica">Fiesta temática</option>
-        <option value="otros">Otros</option>
-      </select>
+  <div class="contacto-info">
+    <p><strong>Email:</strong> divierteteanimaciones09@gmail.com</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Logo Google">
+    <div>
+      <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="mailto:divierteteanimaciones09@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
 
-      <label>Tipo de servicio:</label>
-      <div class="checkbox-grid">
-        <label><input type="checkbox" name="servicio[]" value="animacion_1h"> Animación base 1 hora</label>
-        <label><input type="checkbox" name="servicio[]" value="animacion_2h"> Animación base 2 horas</label>
-        <label><input type="checkbox" name="servicio[]" value="pintacaras"> Pintacaras</label>
-        <label><input type="checkbox" name="servicio[]" value="globoflexia"> Globoflexia</label>
-        <label><input type="checkbox" name="servicio[]" value="personaje_disney"> Personaje Disney</label>
-        <label><input type="checkbox" name="servicio[]" value="talleres"> Talleres</label>
-        <label><input type="checkbox" name="servicio[]" value="cuentacuentos"> Cuentacuentos</label>
-        <label><input type="checkbox" name="servicio[]" value="comedor"> Servicio de comedor</label>
-        <label><input type="checkbox" name="servicio[]" value="canguro"> Canguro</label>
-      </div>
-
-      <textarea name="comentarios" placeholder="Comentarios adicionales"></textarea>
-      <input type="hidden" name="_subject" value="Nueva solicitud de presupuesto desde la web">
-      <input type="hidden" name="_next" value="https://divierteteanimaciones.github.io/DivierteteAnimaciones/gracias.html">
-      <button type="submit">Enviar presupuesto</button>
-    </form>
-  </section>
-  <!-- el resto del contenido original sigue igual -->
+  <a id="whatsapp" href="https://wa.me/34648759373" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 </body>
 </html>
+
