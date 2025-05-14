@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Diviértete Animaciones - Pásatelo en grande con DIVIÉRTETE.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Diviértete Animaciones - Pásatelo en grande con DIVIÉRTETE."/>
   <title>Diviértete Animaciones</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
   <style>
     body {
       margin: 0;
@@ -59,6 +59,7 @@
       padding: 10px;
       border-radius: 8px;
       border: 1px solid #ccc;
+      font-size: 1em;
     }
 
     form button {
@@ -66,6 +67,12 @@
       border: none;
       font-weight: bold;
       cursor: pointer;
+    }
+
+    h2 {
+      text-align: center;
+      color: #c2185b;
+      margin-bottom: 20px;
     }
 
     .checkbox-grid {
@@ -87,11 +94,11 @@
 
     .contacto-info {
       text-align: center;
-      margin-top: 40px;
+      margin: 50px auto;
     }
 
     .contacto-info img {
-      max-width: 150px;
+      max-width: 120px;
       margin: 10px auto;
       display: block;
     }
@@ -99,6 +106,7 @@
     .contacto-info i {
       margin: 0 20px;
       font-size: 3em;
+      color: #555;
     }
 
     #whatsapp {
@@ -122,17 +130,38 @@
       .checkbox-grid label {
         flex: 1 1 100%;
       }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      nav a {
+        margin: 5px;
+      }
     }
   </style>
 </head>
 <body>
-  <form action="https://formsubmit.co/divierteteanimaciones09@gmail.com" method="POST">
+
+  <header>
+    <img src="tu-logo.png" alt="Logo Diviértete Animaciones">
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#sobre">Sobre Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#presupuesto">Pide Presupuesto</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <form id="presupuesto" action="https://formsubmit.co/divierteteanimaciones09@gmail.com" method="POST">
     <h2>Solicita tu Presupuesto</h2>
     <input type="text" name="nombre" placeholder="Tu nombre" required>
     <input type="email" name="email" placeholder="Tu correo electrónico" required>
     <input type="text" name="telefono" placeholder="Teléfono de contacto" required>
     <input type="date" name="fecha" required>
     <input type="text" name="direccion" placeholder="Dirección del evento" required>
+
     <div class="checkbox-grid">
       <label><input type="checkbox" name="servicio[]" value="Animación"> Animación</label>
       <label><input type="checkbox" name="servicio[]" value="Castillos Hinchables"> Castillos Hinchables</label>
@@ -141,13 +170,14 @@
       <label><input type="checkbox" name="servicio[]" value="Pompas Gigantes"> Pompas Gigantes</label>
       <label><input type="checkbox" name="servicio[]" value="Disfraces"> Disfraces</label>
     </div>
+
     <textarea name="mensaje" placeholder="Déjanos tus comentarios o peticiones especiales" rows="4"></textarea>
     <button type="submit">Enviar Presupuesto</button>
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_next" value="https://tusitio.com/gracias.html">
   </form>
 
-  <div class="contacto-info">
+  <div class="contacto-info" id="contacto">
     <p><strong>Email:</strong> divierteteanimaciones09@gmail.com</p>
     <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Logo Google">
     <div>
@@ -160,6 +190,8 @@
   <a id="whatsapp" href="https://wa.me/34648759373" target="_blank">
     <i class="fab fa-whatsapp"></i>
   </a>
+
 </body>
 </html>
+
 
