@@ -327,7 +327,15 @@
       <div class="card">
         <div class="card-inner">
           <div class="card-front">Personajes Disney</div>
-          <div class="card-back">Visita de Mickey y Minnie .<img src="mickey.jpg" alt="Personajes Disney"></div>
+          <div class="card-back".card-back img {
+  width: 100%;           /* que ocupe todo el ancho del contenedor */
+  height: 250px;         /* altura fija para encuadrar */
+  object-fit: cover;     /* recorta para llenar el espacio manteniendo proporción */
+  object-position: center center; /* centra la imagen */
+  border-radius: 8px;    /* opcional, para bordes suaves */
+  display: block;
+}
+>Visita de Mickey y Minnie .<img src="mickey.jpg" alt="Personajes Disney"></div>
         </div>
       </div>
     </div>
