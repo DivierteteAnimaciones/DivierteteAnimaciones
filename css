@@ -1,1 +1,134 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: #fff7f2;
+  color: #333;
+  line-height: 1.6;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  background: #ffe6ec;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  z-index: 1000;
+}
+
+.logo {
+  max-width: 180px;
+  height: auto;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #d44e8f;
+  font-weight: 600;
+}
+
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: #ffe6ec;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn-primary {
+  background: #d44e8f;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #b53670;
+}
+
+.btn-secondary {
+  background: #fff;
+  color: #d44e8f;
+  border: 2px solid #d44e8f;
+}
+
+.btn-secondary:hover {
+  background: #fce8f0;
+}
+
+.services,
+.gallery,
+.contact {
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.services h2,
+.gallery h2,
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.services ul {
+  list-style: disc inside;
+}
+
+.site-footer {
+  background: #ffe6ec;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+.social-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 4rem 2rem;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+}
+```
