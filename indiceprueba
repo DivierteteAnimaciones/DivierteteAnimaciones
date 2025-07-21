@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Diviértete Animaciones</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff0f6;
+    color: #333;
+  }
+  header {
+    background: #f72585;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  nav {
+    background: #f72585;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0.8rem 0;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  main {
+    max-width: 900px;
+    margin: 1rem auto;
+    padding: 0 1rem;
+  }
+
+  /* Pide tu presupuesto */
+  section#presupuesto {
+    background: #ffd6e8;
+    padding: 2rem 1rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+  }
+  section#presupuesto h2 {
+    text-align: center;
+    color: #f72585;
+    margin-bottom: 1rem;
+  }
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  form > div {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+  }
+  label {
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+  }
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    padding: 0.6rem;
+    border: 1px solid #f72585;
+    border-radius: 6px;
+    font-size: 1rem;
+    resize: vertical;
+  }
+  textarea {
+    min-height: 100px;
+  }
+  .checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+    gap: 0.6rem;
+    margin-top: 0.6rem;
+  }
+  .checkbox-group label {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+  }
+  input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+  button[type="submit"] {
+    background-color: #f72585;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 1rem auto 0 auto;
+    display: block;
+  }
+  button[type="submit"]:hover {
+    background-color: #c9187f;
+  }
+
+  /* Contacto */
+  section#contacto {
+    position: relative;
+    color: white;
+    text-align: center;
+    padding: 3rem 1rem;
+    border-radius: 10px;
+    margin-bottom: 3rem;
+    background-image: url('FLAYEREVENTOS.JPG');
+    background-size: cover;
+    background-position: center center;
+  }
+  section#contacto::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(247, 37, 133, 0.75);
+    border-radius: 10px;
+    z-index: 0;
+  }
+  section#contacto > div.content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(0,0,0,0.4);
+    padding: 2rem 1.5rem;
+    border-radius: 10px;
+  }
+  section#contacto h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+  section#contacto p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  section#contacto a.whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    background: #25d366;
+    color: white;
+    font-weight: 700;
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    gap: 0.6rem;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  section#contacto a.whatsapp-link:hover {
+    background: #1ebe5b;
+  }
+  section#contacto a.whatsapp-link svg {
+    width: 22px;
+    height: 22px;
+    fill: white;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    nav {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    form > div {
+      flex: 1 1 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  Diviértete Animaciones
+</header>
+
+<nav>
+  <a href="#inicio">Inicio</a>
+  <a href="#sobre-nosotros">Sobre Nosotros</a>
+  <a href="#servicios">Servicios</a>
+  <a href="#presupuesto">Pide tu presupuesto</a>
+  <a href="#contacto">Contacto</a>
+</nav>
+
+<main>
+
+<!-- Aquí irían las secciones Inicio, Sobre Nosotros, Servicios ... -->
+
+<section id="presupuesto" aria-label="Formulario para pedir presupuesto">
+  <h2>Pide tu presupuesto</h2>
+  <form method="POST" action="mailto:divierteteanimaciones09@gmail.com" enctype="text/plain">
+    <div>
+      <label for="nombre">Nombre completo</label>
+      <input id="nombre" name="nombre" type="text" placeholder="Tu nombre completo" required />
+    </div>
+    <div>
+      <label for="email">Correo electrónico</label>
+      <input id="email" name="email" type="email" placeholder="tu@email.com" required />
+    </div>
+    <div style="flex:1 1 100%;">
+      <label>Tipo de servicio</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="servicio" value="Cumpleaños" /> Cumpleaños</label>
+        <label><input type="checkbox" name="servicio" value="Bautizos" /> Bautizos</label>
+        <label><input type="checkbox" name="servicio" value="Comuniones" /> Comuniones</label>
+        <label><input type="checkbox" name="servicio" value="Eventos familiares" /> Eventos familiares</label>
+        <label><input type="checkbox" name="servicio" value="Fiestas escolares" /> Fiestas escolares</label>
+        <label><input type="checkbox" name="servicio" value="Otros" /> Otros</label>
+      </div>
+    </div>
+    <div style="flex:1 1 100%;">
+      <label for="mensaje">Mensaje / detalles</label>
+      <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos tus ideas o dudas..." rows="5"></textarea>
+    </div>
+    <button type="submit">Enviar presupuesto</button>
+  </form>
+</section>
+
+<section id="contacto" aria-label="Sección de contacto con imagen de fondo">
+  <div class="content">
+    <h2>Contacto</h2>
+    <p>Email: <a href="mailto:divierteteanimaciones09@gmail.com" style="color:#ffe0f2;">divierteteanimaciones09@gmail.com</a></p>
+    <a href="https://wa.me/34648759373" target="_blank" rel="noopener" class="whatsapp-link" aria-label="Contactar por WhatsApp">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M20.52 3.48a11.88 11.88 0 0 0-17 16.5L3 21l1.99-5.13a11.88 11.88 0 0 0 15.53-12.39zm-5.54 11.08c-.27.78-1.59 1.5-2.17 1.6-.56.1-1.27.14-2.37-.5a8.81 8.81 0 0 1-3.3-3.22 5.53 5.53 0 0 1-.94-1.79c-.24-.5-.34-1-.12-1.38.24-.45 1.03-.74 1.38-.75.31 0 .62 0 .89 0 .25 0 .4.02.57.36.16.33.54 1.11.58 1.2.04.13.06.3.02.48-.03.15-.23.48-.36.62-.12.14-.25.15-.46.04a1.6 1.6 0 0 0-.84-.27c-.15 0-.28.02-.41.17-.11.13-.46.43-.46 1.04s.48 1.2.55 1.29c.06.08.93 1.42 2.27 1.99.32.13.57.21.76.28.32.12.6.1.82.06.25-.05.78-.32.89-.63.1-.32.1-.6.07-.63z"/>
+      </svg>
+      WhatsApp
+    </a>
+  </div>
+</section>
+
+</main>
+
+</body>
+</html>
