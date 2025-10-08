@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diviértete Animaciones</title>
+  <style>
+    /* ====== RESET BÁSICO ====== */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { line-height: 1.5; color: #333; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ====== COLORES ====== */
+    :root {
+      --rosado: #ff4da6;
+      --verde: #8cd153;
+      --amarillo: #ffd600;
+      --blanco: #ffffff;
+    }
+
+    /* ====== CABECERA ====== */
+    header {
+      background-color: var(--rosado);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header h1 { color: var(--blanco); font-size: 1.8rem; }
+    nav ul { display: flex; gap: 20px; list-style: none; }
+    nav ul li a { color: var(--blanco); font-weight: bold; }
+    #btn-menu-movil {
+      display: none;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: var(--blanco);
+      cursor: pointer;
+    }
+
+    /* ====== SECCIONES ====== */
+    section { padding: 50px 20px; }
+    #inicio { background-color: var(--amarillo); text-align: center; }
+    #inicio img { max-width: 100%; height: auto; margin-top: 20px; }
+    #sobre-nosotros, #servicios, #galeria, #presupuesto, #contacto { background-color: #f9f9f9; margin-bottom: 20px; border-radius: 15px; padding: 30px; }
+
+    /* ====== TARJETAS SERVICIOS ====== */
+    .servicio { display: flex; flex-direction: column; align-items: center; background: var(--blanco); padding: 15px; margin-bottom: 20px; border-radius: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); transition: transform 0.3s; }
+    .servicio:hover { transform: translateY(-5px); }
+    .servicio img { width: 100%; border-radius: 10px; margin-bottom: 10px; }
+
+    /* ====== FORMULARIO ====== */
+    form { display: flex; flex-direction: column; gap: 15px; }
+    input, textarea, select { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem; }
+    button { padding: 14px; background-color: var(--rosado); color: var(--blanco); font-weight: bold; border: none; border-radius: 50px; cursor: pointer; transition: 0.3s; }
+    button:hover { background-color: #e03e95; }
+
+    /* ====== BOTÓN FLOTANTE WHATSAPP ====== */
+    .boton-whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      background-color: #25D366;
+      color: white;
+      padding: 14px 16px;
+      border-radius: 50px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /* ====== GALERÍA ====== */
+    .galeria { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .galeria img { width: calc(50% - 10px); border-radius: 10px; }
+
+    /* ====== MEDIA QUERIES ====== */
+    @media (max-width: 768px) {
+      nav ul { display: none; flex-direction: column; background: var(--rosado); position: absolute; top: 60px; right: 0; width: 60%; padding: 20px; border-radius: 0 0 0 15px; }
+      nav ul.abierto { display: flex; }
+      #btn-menu-movil { display: block; }
+      .galeria img { width: 100%; }
+    }
+
+    @media (max-width: 480px) {
+      header h1 { font-size: 1.5rem; }
+      button { font-size: 1rem; padding: 12px; }
+      section { padding: 30px 15px; }
+      .servicio { padding: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== HEADER ====== -->
+  <header>
+    <h1>Diviértete Animaciones</h1>
+    <button id="btn-menu-movil">☰</button>
+    <nav id="nav-principal">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#presupuesto">Pide Presupuesto</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ====== INICIO ====== -->
+  <section id="inicio">
+    <h2>Bienvenidos a Diviértete Animaciones</h2>
+    <img src="imagenes/flayer-eventos.jpg" alt="Flayer de eventos">
+  </section>
+
+  <!-- ====== SOBRE NOSOTROS ====== -->
+  <section id="sobre-nosotros">
+    <h2>Sobre Nosotros</h2>
+    <p>Somos expertos en animaciones infantiles, ofreciendo diversión y entretenimiento para todas las edades.</p>
+    <img src="imagenes/sobre-nosotros.jpg" alt="Nuestro equipo" style="max-width: 300px; display:block; margin:15px auto;">
+  </section>
+
+  <!-- ====== SERVICIOS ====== -->
+  <section id="servicios">
+    <h2>Servicios</h2>
+    <div class="servicio">
+      <img src="imagenes/servicio1.jpg" alt="Servicio 1">
+      <h3>Animación Infantil</h3>
+      <p>Fiestas temáticas, juegos y actividades divertidas.</p>
+    </div>
+    <div class="servicio">
+      <img src="imagenes/servicio2.jpg" alt="Servicio 2">
+      <h3>Shows y Espectáculos</h3>
+      <p>Magia, payasos y teatro interactivo para todas las edades.</p>
+    </div>
+  </section>
+
+  <!-- ====== GALERÍA ====== -->
+  <section id="galeria">
+    <h2>Galería</h2>
+    <div class="galeria">
+      <img src="imagenes/galeria1.jpg" alt="Galería 1">
+      <img src="imagenes/galeria2.jpg" alt="Galería 2">
+      <img src="imagenes/galeria3.jpg" alt="Galería 3">
+      <img src="imagenes/galeria4.jpg" alt="Galería 4">
+    </div>
+  </section>
+
+  <!-- ====== FORMULARIO PRESUPUESTO ====== -->
+  <section id="presupuesto">
+    <h2>Pide tu Presupuesto</h2>
+    <form action="mailto:divierteteanimaciones09@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="nombre" placeholder="Nombre completo" required>
+      <input type="email" name="email" placeholder="Correo electrónico" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" required>
+      <textarea name="mensaje" placeholder="Cuéntanos tu idea de evento" rows="4" required></textarea>
+      <button type="submit">Enviar Presupuesto</button>
+    </form>
+  </section>
+
+  <!-- ====== CONTACTO ====== -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>Correo: divierteteanimaciones09@gmail.com</p>
+    <p>Teléfono: +34 648759373</p>
+  </section>
+
+  <!-- ====== BOTÓN WHATSAPP ====== -->
+  <a href="https://wa.me/34648759373" target="_blank" class="boton-whatsapp">WhatsApp</a>
+
+  <!-- ====== SCRIPT MENÚ MÓVIL ====== -->
+  <script>
+    const btnMenu = document.getElementById('btn-menu-movil');
+    const navUl = document.querySelector('#nav-principal ul');
+    btnMenu.addEventListener('click', () => {
+      navUl.classList.toggle('abierto');
+    });
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
