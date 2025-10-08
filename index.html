@@ -1,270 +1,392 @@
-position: absolute;
-width: 100%;
-height: 100%;
-backface-visibility: hidden;
-border-radius: 10px;
-padding: 20px;
-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-background-color: #ffe6eb;
-display: flex;
-justify-content: center;
-align-items: center;
-text-align: center;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Diviértete Animaciones - Pásatelo en grande con DIVIÉRTETE." />
+  <title>Diviértete Animaciones</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff8fb;
+      color: #333;
+    }
 
-.card-back {
-transform: rotateY(180deg);
-flex-direction: column;
-}
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #ffc0cb;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      z-index: 1000;
+    }
 
-.card-back img {
-width: 100%;
-max-height: 100px;
-object-fit: cover;
-margin-top: 10px;
-border-radius: 8px;
-}
+    header img {
+      height: 50px;
+    }
 
-.galeria-slider {
-display: flex;
-overflow-x: auto;
-scroll-behavior: smooth;
-}
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
 
-.galeria-slider::-webkit-scrollbar {
-display: none;
-}
+    nav a:hover {
+      color: #007f4e;
+    }
 
-.foto-video {
-flex: 0 0 auto;
-width: 250px;
-margin-right: 20px;
-}
+    .hero {
+      text-align: center;
+      background: url('comunion.jpg') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2em;
+      text-shadow: 2px 2px 5px black;
+      flex-direction: column;
+    }
 
-.foto-video img, .foto-video video {
-width: 100%;
-border-radius: 10px;
-}
+    .hero img {
+      margin-top: 20px;
+      width: 80%;
+      max-width: 500px;
+      border-radius: 10px;
+    }
 
-form {
-background-color: #ffe6eb;
-padding: 20px;
-border-radius: 15px;
-max-width: 600px;
-margin: auto;
-}
+    section {
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-form input, form textarea, form select, form button {
-display: block;
-width: 100%;
-margin-bottom: 15px;
-padding: 10px;
-border-radius: 8px;
-border: 1px solid #ccc;
-}
+    h2 {
+      color: #e91e63;
+      margin-bottom: 20px;
+      text-align: center;
+    }
 
-form button {
-background: #ffc107;
-border: none;
-font-weight: bold;
-cursor: pointer;
-}
+    .sobre {
+      text-align: center;
+    }
 
-footer {
-text-align: center;
-padding: 20px;
-background-color: #f8bbd0;
-}
+    .sobre img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 15px;
+      display: block;
+      margin: 20px auto 0;
+    }
 
-#whatsapp {
-position: fixed;
-bottom: 20px;
-right: 20px;
-background: #25D366;
-color: white;
-border-radius: 50%;
-width: 60px;
-height: 60px;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 30px;
-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-z-index: 1000;
-}
+    .servicios {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
 
-.contacto-info {
-text-align: center;
-}
+    .card {
+      perspective: 1000px;
+      width: 250px;
+      height: 250px;
+    }
 
-.contacto-info img {
-max-width: 150px;
-margin: 10px auto;
-display: block;
-}
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
 
-.contacto-info i {
-margin-right: 5px;
-}
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
 
-/* Estilo adicional para los checkboxes y formularios */
-form label {
-font-weight: bold;
-margin-top: 10px;
-display: block;
-}
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      background-color: #ffe6eb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
 
-.checkbox-group {
-background: #fff;
-border-radius: 8px;
-padding: 10px;
-border: 1px solid #ccc;
-}
+    .card-back {
+      transform: rotateY(180deg);
+      flex-direction: column;
+    }
 
-.checkbox-group label {
-display: flex;
-align-items: center;
-margin-bottom: 5px;
-font-weight: normal;
-}
+    .card-back img {
+      width: 100%;
+      max-height: 100px;
+      object-fit: cover;
+      margin-top: 10px;
+      border-radius: 8px;
+    }
 
-.checkbox-group input[type="checkbox"] {
-margin-right: 10px;
-}
+    .galeria-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+    }
 
-.contacto-info i.fab {
-font-size: 24px; /* íconos sociales más grandes */
-margin: 10px;
-}
+    .galeria-slider::-webkit-scrollbar {
+      display: none;
+    }
 
-@media (max-width: 768px) {
-.card {
-width: 100%;
-height: auto;
-}
+    .foto-video {
+      flex: 0 0 auto;
+      width: 250px;
+      margin-right: 20px;
+    }
 
-.card-back img {
-max-height: 150px;
-}
+    .foto-video img, .foto-video video {
+      width: 100%;
+      border-radius: 10px;
+    }
 
-form {
-width: 90%;
-}
-}
-</style>
+    form {
+      background-color: #ffe6eb;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    form input, form textarea, form select, form button {
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    form button {
+      background: #ffc107;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f8bbd0;
+    }
+
+    #whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+    }
+
+    .contacto-info {
+      text-align: center;
+    }
+
+    .contacto-info img {
+      max-width: 150px;
+      margin: 10px auto;
+      display: block;
+    }
+
+    .contacto-info i {
+      margin-right: 5px;
+    }
+
+    /* Estilo adicional para los checkboxes y formularios */
+    form label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+
+    .checkbox-group {
+      background: #fff;
+      border-radius: 8px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+      font-weight: normal;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      margin-right: 10px;
+    }
+
+    .contacto-info i.fab {
+      font-size: 24px; /* íconos sociales más grandes */
+      margin: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        width: 100%;
+        height: auto;
+      }
+
+      .card-back img {
+        max-height: 150px;
+      }
+
+      form {
+        width: 90%;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<header>
-<img src="logo_mejorado.png" alt="Logo Diviértete" />
-<nav>
-<a href="#inicio">Inicio</a>
-<a href="#sobre">Sobre Nosotros</a>
-<a href="#servicios">Servicios</a>
-<a href="#galeria">Galería</a>
-<a href="#presupuesto">Pide Presupuesto</a>
-<a href="#contacto">Contacto</a>
-</nav>
-</header>
+  <header>
+    <img src="logo_mejorado.png" alt="Logo Diviértete" />
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#sobre">Sobre Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#galeria">Galería</a>
+      <a href="#presupuesto">Pide Presupuesto</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
 
-<section class="hero" id="inicio">
-<div>¡Bienvenidos a Diviértete Animaciones!</div>
-</section>
+  <section class="hero" id="inicio">
+    <div>¡Bienvenidos a Diviértete Animaciones!</div>
+  </section>
 
-<section id="sobre" class="sobre">
-<h2>Sobre Nosotros</h2>
-<p>
-Nosotros somos Robert y Ainhoa, animadores infantiles con muuuchas ganas de pasárnoslo muy bien. 🤩🤩
-Nuestra gran pasión es jugar también nos encanta bailar, cantar y compartir tiempo de calidad. Somos especialistas en hacer de tu día un día inolvidable.
-Podemos formar parte de tu cumpleaños, comunión, boda, bautizo y muuuchos eventos públicos infantiles.🥳🥳🥳
-Gracias por confiar en nosotros, gracias por confiar en DIVIÉRTETE ANIMACIONES.
-</p>
-<img src="FLAYEREVENTOS.JPG" alt="Robert y Ainhoa" />
-</section>
+  <section id="sobre" class="sobre">
+    <h2>Sobre Nosotros</h2>
+    <p>
+      Nosotros somos Robert y Ainhoa, animadores infantiles con muuuchas ganas de pasárnoslo muy bien. 🤩🤩
+      Nuestra gran pasión es jugar también nos encanta bailar, cantar y compartir tiempo de calidad. Somos especialistas en hacer de tu día un día inolvidable.
+      Podemos formar parte de tu cumpleaños, comunión, boda, bautizo y muuuchos eventos públicos infantiles.🥳🥳🥳
+      Gracias por confiar en nosotros, gracias por confiar en DIVIÉRTETE ANIMACIONES.
+    </p>
+    <img src="FLAYEREVENTOS.JPG" alt="Robert y Ainhoa" />
+  </section>
 
-<section id="servicios">
-<h2>Servicios</h2>
-<div class="servicios">
-<div class="card">
-<div class="card-inner">
-<div class="card-front">Animación Infantil</div>
-<div class="card-back">
-¡Animación a gusto del protagonista con música en todo momento! Juegos, Bailes, Música y mucha diversión.
-<img src="champions.jpg" alt="Animación Infantil" />
-</div>
-</div>
-</div>
-<div class="card">
-<div class="card-inner">
-<div class="card-front">Cuentacuentos</div>
-<div class="card-back">
-Historias mágicas para soñar.
-<img src="piratas.jpg" alt="Cuentacuentos" />
-</div>
-</div>
-</div>
-<div class="card">
-<div class="card-inner">
-<div class="card-front">Globoflexia</div>
-<div class="card-back">
-Figuras de globos como perritos, espadas, mariposas, flores y más.
-<img src="globoflexia.jpg" alt="Globoflexia" />
-</div>
-</div>
-</div>
-<div class="card">
-<div class="card-inner">
-<div class="card-front">Pinta Caras</div>
-<div class="card-back">
-Diseños únicos para que los niños se transformen en sus personajes favoritos.
-<img src="pintacaras.jpg" alt="Pintacaras" />
-</div>
-</div>
-</div>
-<div class="card">
-<div class="card-inner">
-<div class="card-front">Personaje Disney</div>
-<div class="card-back">
-vive la visita de Mcikey o Minnie, para bailar, hacer fotos y abrir contigo tus regalos!
-<img src="MM.jpg" alt="Personaje Disney" />
-</div>
-</div>
-</div>
-<div class="card">
-<div class="card-inner">
-<div class="card-front">Talleres</div>
-<div class="card-back">
-Experimenta con diferentes talleres, como taller de slime, pulseras, pequeños artistas y muchos más !
-<img src="slime.jpg" alt="Talleres" />
-</div>
-</section>
+  <section id="servicios">
+    <h2>Servicios</h2>
+    <div class="servicios">
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">Animación Infantil</div>
+          <div class="card-back">
+            ¡Animación a gusto del protagonista con música en todo momento! Juegos, Bailes, Música y mucha diversión.
+            <img src="champions.jpg" alt="Animación Infantil" />
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">Cuentacuentos</div>
+          <div class="card-back">
+            Historias mágicas para soñar.
+            <img src="piratas.jpg" alt="Cuentacuentos" />
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">Globoflexia</div>
+          <div class="card-back">
+            Figuras de globos como perritos, espadas, mariposas, flores y más.
+            <img src="globoflexia.jpg" alt="Globoflexia" />
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">Pinta Caras</div>
+          <div class="card-back">
+            Diseños únicos para que los niños se transformen en sus personajes favoritos.
+            <img src="pintacaras.jpg" alt="Pintacaras" />
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">Personaje Disney</div>
+          <div class="card-back">
+           vive la visita de Mcikey o Minnie, para bailar, hacer fotos y abrir contigo tus regalos!
+            <img src="MM.jpg" alt="Personaje Disney" />
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">Talleres</div>
+          <div class="card-back">
+           Experimenta con diferentes talleres, como taller de slime, pulseras, pequeños artistas y muchos más !
+            <img src="slime.jpg" alt="Talleres" />
+    </div>
+  </section>
 
-<section id="galeria">
-<h2>Galería</h2>
-<div class="galeria-slider">
-<div class="foto-video">
-<img src="tallerpintura.jpg" alt="Evento 1" />
-</div>
-<div class="foto-video">
-<img src="pintacaras3.jpg" alt="Evento 2" />
-</div>
-<div class="foto-video">
-<img src="CAMISETA.jpg" alt="Evento 3" />
-</div>
-<div class="foto-video">
-<video controls>
+  <section id="galeria">
+    <h2>Galería</h2>
+    <div class="galeria-slider">
+      <div class="foto-video">
+        <img src="tallerpintura.jpg" alt="Evento 1" />
+      </div>
+      <div class="foto-video">
+        <img src="pintacaras3.jpg" alt="Evento 2" />
+      </div>
+       <div class="foto-video">
+        <img src="CAMISETA.jpg" alt="Evento 3" />
+      </div>
+      <div class="foto-video">
+        <video controls>
           <source src="comunión.mp4" type="video/mp4" />
           <source src="comunion.mp4" type="video/mp4" />
-</video>
-</div>
-<div class="foto-video">
-@@ -383,7 +383,7 @@
-</div>
-<div class="foto-video">
-<video controls>
+        </video>
+      </div>
+      <div class="foto-video">
+        <img src="navidad.jpg" alt="Evento 4" />
+        </div>
+      <div class="foto-video">
+        <img src="peto.jpg" alt="Evento 5" />
+        </div>
+      <div class="foto-video">
+        <video controls>
+          <source src="colegios.mp4" type="video/mp4" />
+        </video>
+      <div class="foto-video">
+        <img src="juegosplaya.jpg" alt="Evento 6" />
+      </div>
+      <div class="foto-video">
+        <video controls>
           <source src="comunión sonsanmarti.mp4" type="video/mp4" />
           <source src="comunion sonsanmarti.mp4" type="video/mp4" />
- </video>
+        </video>
         </div>
         <div class="foto-video">
          <video controls>
@@ -339,6 +461,7 @@ Experimenta con diferentes talleres, como taller de slime, pulseras, pequeños a
   </footer>
 </body>
 </html>
+
 
 
 
