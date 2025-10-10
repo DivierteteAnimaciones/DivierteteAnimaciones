@@ -80,7 +80,7 @@ nav a:hover { color: #007f4e; }
 .hero img { margin-top: 20px; width: 80%; max-width: 500px; border-radius: 10px; }
 
 /* Secciones */
-section { padding: 50px 20px; max-width: 1200px; margin: auto; }
+section { padding: 50px 20px; max-width: 1200px; margin: auto; position: relative; z-index: 1; scroll-margin-top: 70px; }
 h2 { color: #e91e63; margin-bottom: 20px; text-align: center; }
 
 /* Sobre nosotros */
@@ -110,7 +110,7 @@ h2 { color: #e91e63; margin-bottom: 20px; text-align: center; }
 .card-back img { width: 100%; max-height: 100px; object-fit: cover; margin-top: 10px; border-radius: 8px; }
 
 /* Galería */
-.galeria-slider { display: flex; overflow-x: auto; scroll-behavior: smooth; gap: 10px; }
+.galeria-slider { display: flex !important; overflow-x: auto; scroll-behavior: smooth; gap: 10px; }
 .galeria-slider::-webkit-scrollbar { display: none; }
 .foto-video { flex: 0 0 auto; width: 250px; }
 .foto-video img, .foto-video video { width: 100%; border-radius: 10px; }
@@ -187,36 +187,23 @@ footer { text-align: center; padding: 20px; background-color: #f8bbd0; }
     <div class="card"><div class="card-inner"><div class="card-front">Globoflexia</div><div class="card-back">Figuras de globos como perritos, espadas, mariposas, flores y más.<img src="globoflexia.jpg" alt="Globoflexia" /></div></div></div>
     <div class="card"><div class="card-inner"><div class="card-front">Pinta Caras</div><div class="card-back">Diseños únicos para que los niños se transformen en sus personajes favoritos.<img src="pintacaras.jpg" alt="Pintacaras" /></div></div></div>
     <div class="card"><div class="card-inner"><div class="card-front">Personaje Disney</div><div class="card-back">Vive la visita de Mickey o Minnie, para bailar, hacer fotos y abrir contigo tus regalos!<img src="MM.jpg" alt="Personaje Disney" /></div></div></div>
-    <div class="card"><div class="card-inner"><div class="card-front">Talleres</div><div class="card-back">Experimenta con diferentes talleres, como taller de slime, pulseras, pequeños artistas y muchos más!<img src="slime.jpg" alt="Talleres" /></
+    <div class="card"><div class="card-inner"><div class="card-front">Talleres</div><div class="card-back">Experimenta con diferentes talleres, como taller de slime, pulseras, pequeños artistas y muchos más!<img src="slime.jpg" alt="Talleres" /></div></div></div>
+  </div>
+</section>
+
 <section id="galeria">
   <h2>Galería</h2>
   <div class="galeria-slider">
     <div class="foto-video"><img src="tallerpintura.jpg" alt="Evento 1" /></div>
     <div class="foto-video"><img src="pintacaras3.jpg" alt="Evento 2" /></div>
     <div class="foto-video"><img src="CAMISETA.jpg" alt="Evento 3" /></div>
-    <div class="foto-video">
-      <video controls>
-        <source src="comunión.mp4" type="video/mp4" />
-      </video>
-    </div>
+    <div class="foto-video"><video controls><source src="comunión.mp4" type="video/mp4" /></video></div>
     <div class="foto-video"><img src="navidad.jpg" alt="Evento 4" /></div>
     <div class="foto-video"><img src="peto.jpg" alt="Evento 5" /></div>
-    <div class="foto-video">
-      <video controls>
-        <source src="colegios.mp4" type="video/mp4" />
-      </video>
-    </div>
+    <div class="foto-video"><video controls><source src="colegios.mp4" type="video/mp4" /></video></div>
     <div class="foto-video"><img src="juegosplaya.jpg" alt="Evento 6" /></div>
-    <div class="foto-video">
-      <video controls>
-        <source src="comunión sonsanmarti.mp4" type="video/mp4" />
-      </video>
-    </div>
-    <div class="foto-video">
-      <video controls>
-        <source src="comunionagua.mp4" type="video/mp4" />
-      </video>
-    </div>
+    <div class="foto-video"><video controls><source src="comunión sonsanmarti.mp4" type="video/mp4" /></video></div>
+    <div class="foto-video"><video controls><source src="comunionagua.mp4" type="video/mp4" /></video></div>
   </div>
 </section>
 
@@ -280,7 +267,7 @@ footer { text-align: center; padding: 20px; background-color: #f8bbd0; }
 </footer>
 
 <script>
-// Menú hamburguesa overlay
+// Overlay menú
 const toggle = document.querySelector('.menu-toggle');
 const overlay = document.getElementById('overlay-menu');
 const closeBtn = document.querySelector('#overlay-menu .close-menu');
@@ -288,11 +275,20 @@ const links = document.querySelectorAll('#overlay-menu a');
 
 toggle.addEventListener('click', () => { overlay.classList.add('show'); });
 closeBtn.addEventListener('click', () => { overlay.classList.remove('show'); });
-links.forEach(link => link.addEventListener('click', () => { overlay.classList.remove('show'); }));
+links.forEach(link => link.addEventListener('click', (e) => {
+  e.preventDefault();
+  const target = link.getAttribute('href');
+  overlay.classList.remove('show');
+  setTimeout(() => {
+    document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
+  }, 300);
+}));
 </script>
 
 </body>
 </html>
+
+
 
 
 
