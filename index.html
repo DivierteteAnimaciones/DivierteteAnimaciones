@@ -133,17 +133,15 @@ footer { text-align: center; padding: 20px; background-color: #f8bbd0; }
 .contacto-info img { max-width: 150px; margin: 10px auto; display: block; }
 .contacto-info i.fab { font-size: 24px; margin: 10px; }
 
-/* Responsive */
+/* Responsive básico */
 @media (max-width: 768px) {
-  .card { width: 90%; height: auto; }
-  .card-back img { max-height: 150px; }
   .hero { height: 40vh; font-size: 1.4em; padding: 10px; }
   form { width: 90%; }
   .menu-toggle { display: block; }
   nav { display: none; }
 }
 
-/* 🍪 Styles del banner de cookies (añadidos) */
+/* 🍪 Banner de cookies */
 .cookie-banner {
   position: fixed;
   bottom: 0;
@@ -171,8 +169,27 @@ footer { text-align: center; padding: 20px; background-color: #f8bbd0; }
 .cookie-btn.reject { background-color: #f44336; color: white; }
 .cookie-btn:hover { opacity: 0.9; }
 
-/* Estilos mínimos para los enlaces en el footer (manteniendo tu diseño original) */
+/* Footer enlaces */
 footer a { color: inherit; font-weight: bold; text-decoration: underline; }
+
+/* Mejoras responsive para Servicios */
+@media (max-width: 1024px) {
+  .servicios {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  .card { width: 45%; max-width: 350px; height: auto; }
+  .card-inner { min-height: 250px; }
+  .card-back img { max-height: 150px; width: auto; margin-top: 10px; }
+}
+
+@media (max-width: 768px) {
+  .servicios { flex-direction: column; align-items: center; }
+  .card { width: 100%; max-width: 350px; height: auto; }
+  .card-inner { min-height: 250px; }
+  .card-back img { max-height: 150px; width: auto; }
+}
 </style>
 </head>
 <body>
@@ -293,15 +310,12 @@ footer a { color: inherit; font-weight: bold; text-decoration: underline; }
   </a>
 </div>
 
-<!-- 📄 Política de Privacidad (insertada) -->
 <section id="politica-privacidad" style="padding:2rem; background:#fff;">
   <h2>Política de Privacidad</h2>
   <p><strong>Diviértete Animaciones</strong>, con correo de contacto <strong>divierteteanimaciones09@gmail.com</strong>, y sede en Mallorca (Islas Baleares, España), informa a los usuarios de su web sobre su política de protección de datos personales.</p>
-
   <p>Los datos facilitados a través del formulario de contacto o correo electrónico serán tratados con la finalidad de responder consultas y elaborar presupuestos. La base legal para el tratamiento es el consentimiento del interesado. Los datos no se cederán a terceros, salvo obligación legal. Los usuarios pueden ejercer sus derechos de acceso, rectificación, supresión y oposición escribiendo al correo anterior con el asunto “Protección de datos”.</p>
 </section>
 
-<!-- 🍪 Política de Cookies (insertada) -->
 <section id="politica-cookies" style="padding:2rem; background:#fff;">
   <h2>Política de Cookies</h2>
   <p>Este sitio web utiliza cookies propias y de terceros para mejorar la experiencia del usuario y analizar el tráfico. Puedes aceptar o rechazar las cookies en cualquier momento desde el banner o la configuración de tu navegador. Al aceptar, consientes el uso de cookies según lo descrito en esta política.</p>
@@ -332,9 +346,26 @@ links.forEach(link => link.addEventListener('click', (e) => {
     document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
   }, 300);
 }));
+
+// 🍪 Banner de Cookies
+document.addEventListener("DOMContentLoaded", function() {
+  const banner = document.getElementById("cookie-banner");
+  try {
+    if (!localStorage.getItem("cookies-choice")) { banner.style.display = "block"; }
+  } catch (e) { console.warn("No se puede acceder a localStorage:", e); banner.style.display = "block"; }
+
+  document.getElementById("accept-cookies").addEventListener("click", function() {
+    try { localStorage.setItem("cookies-choice", "accepted"); } catch(e){}
+    banner.style.display = "none";
+  });
+
+  document.getElementById("reject-cookies").addEventListener("click", function() {
+    try { localStorage.setItem("cookies-choice", "rejected"); } catch(e){}
+    banner.style.display = "none";
+  });
+});
 </script>
 
-<!-- 🍪 Banner de Cookies (insertado) -->
 <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
   <p>
     Usamos cookies propias y de terceros para mejorar tu experiencia y analizar el tráfico de nuestro sitio.
@@ -346,36 +377,9 @@ links.forEach(link => link.addEventListener('click', (e) => {
   </div>
 </div>
 
-<script>
-// 🍪 Mostrar el banner solo si el usuario no ha hecho una elección antes
-document.addEventListener("DOMContentLoaded", function() {
-  const banner = document.getElementById("cookie-banner");
-  try {
-    if (!localStorage.getItem("cookies-choice")) {
-      banner.style.display = "block";
-    }
-  } catch (e) {
-    // En navegadores con bloqueo estricto de almacenamiento, no hacer nada
-    console.warn("No se puede acceder a localStorage:", e);
-    banner.style.display = "block";
-  }
-
-  document.getElementById("accept-cookies").addEventListener("click", function() {
-    try { localStorage.setItem("cookies-choice", "accepted"); } catch(e){/*ignore*/ }
-    banner.style.display = "none";
-    // Si usas Google Analytics u otros scripts, actívalos aquí si es necesario.
-  });
-
-  document.getElementById("reject-cookies").addEventListener("click", function() {
-    try { localStorage.setItem("cookies-choice", "rejected"); } catch(e){/*ignore*/ }
-    banner.style.display = "none";
-    // Aquí podrías detener/evitar la carga de scripts de terceros si los tienes.
-  });
-});
-</script>
-
 </body>
 </html>
+
 
 
 
