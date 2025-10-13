@@ -257,27 +257,31 @@ footer a { color: inherit; font-weight: bold; text-decoration: underline; }
   <a href="https://wa.me/+34648759373" target="_blank" aria-label="WhatsApp"> <i class="fab fa-whatsapp"></i> </a>
 </div>
 
-<section id="politica-privacidad" style="padding:2rem; background:#fff;">
-  <h2>Política de Privacidad</h2>
-  <p><strong>Diviértete Animaciones</strong>, con correo de contacto <strong>divierteteanimaciones09@gmail.com</strong>, informa a los usuarios sobre la protección de datos personales.</p>
-  <p>Los datos facilitados serán usados para responder consultas y elaborar presupuestos. No se cederán a terceros salvo obligación legal. Derechos de acceso, rectificación, supresión y oposición: escribir al correo con asunto “Protección de datos”.</p>
-</section>
-
-<section id="politica-cookies" style="padding:2rem; background:#fff;">
-  <h2>Política de Cookies</h2>
-  <p>Este sitio web utiliza cookies propias y de terceros para mejorar la experiencia y analizar tráfico. Puedes aceptar o rechazar cookies en el banner o desde tu navegador. Al aceptar, consientes su uso.</p>
-</section>
-
 <footer>
   <p>© 2025 Diviértete Animaciones. Todos los derechos reservados.</p>
-  <p> <a href="#politica-privacidad">Política de Privacidad</a> · <a href="#politica-cookies">Política de Cookies</a> </p>
+  <p> <a href="#" id="openPolicy" style="color:#007f4e; text-decoration:underline;">Política de Privacidad y Cookies</a> </p>
 </footer>
 
+<!-- 🍪 Banner de cookies -->
 <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
-  <p> Usamos cookies propias y de terceros para mejorar tu experiencia y analizar el tráfico. <a href="#politica-cookies" style="color:inherit; text-decoration:underline;">Más información</a> </p>
+  <p> Usamos cookies propias y de terceros para mejorar tu experiencia y analizar el tráfico. <a href="#" id="openPolicy" style="color:inherit; text-decoration:underline;">Más información</a> </p>
   <div class="cookie-buttons">
     <button id="accept-cookies" class="cookie-btn accept" aria-label="Aceptar cookies">Aceptar</button>
     <button id="reject-cookies" class="cookie-btn reject" aria-label="Rechazar cookies">Rechazar</button>
+  </div>
+</div>
+
+<!-- Modal Política de Privacidad y Cookies -->
+<div id="policyModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:3000;">
+  <div style="background:white; padding:20px; max-width:600px; width:90%; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.3); max-height:80%; overflow-y:auto; text-align:left;">
+    <h2 style="color:#e91e63; margin-bottom:15px;">Política de Privacidad y Cookies</h2>
+    <p><strong>Diviértete Animaciones</strong>, con correo de contacto <strong>divierteteanimaciones09@gmail.com</strong>, informa a los usuarios sobre la protección de datos personales.</p>
+    <p>Los datos facilitados serán usados para responder consultas y elaborar presupuestos. No se cederán a terceros salvo obligación legal. Derechos de acceso, rectificación, supresión y oposición: escribir al correo con asunto “Protección de datos”.</p>
+    <p>Este sitio web utiliza cookies propias y de terceros para mejorar la experiencia y analizar tráfico. Puedes aceptar o rechazar cookies. Al aceptar, consientes su uso.</p>
+    <div style="text-align:right; margin-top:20px;">
+      <button id="acceptPolicy" style="background:#4caf50;color:white;padding:10px 20px;border:none;border-radius:25px;margin-right:10px;cursor:pointer;">Aceptar</button>
+      <button id="rejectPolicy" style="background:#f44336;color:white;padding:10px 20px;border:none;border-radius:25px;cursor:pointer;">Rechazar</button>
+    </div>
   </div>
 </div>
 
@@ -317,7 +321,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // Galería slider automático + botones
 const slider = document.getElementById('galeria-slider');
 let scrollAmount = 0;
-const step = 210; // ancho aproximado + margen
+const step = 210;
 
 // Automático
 setInterval(() => {
@@ -338,10 +342,34 @@ document.getElementById('prev').addEventListener('click', () => {
   if(scrollAmount < 0) scrollAmount = slider.scrollWidth - slider.clientWidth;
   slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
 });
+
+// Modal de Política de Privacidad y Cookies
+const openPolicy = document.querySelectorAll('#openPolicy');
+const policyModal = document.getElementById('policyModal');
+const acceptPolicy = document.getElementById('acceptPolicy');
+const rejectPolicy = document.getElementById('rejectPolicy');
+
+openPolicy.forEach(btn => btn.addEventListener('click', function(e){
+    e.preventDefault();
+    policyModal.style.display = 'flex';
+}));
+
+acceptPolicy.addEventListener('click', function(){
+    policyModal.style.display = 'none';
+    localStorage.setItem('cookies-choice', 'accepted');
+    document.getElementById('cookie-banner').style.display = 'none';
+});
+
+rejectPolicy.addEventListener('click', function(){
+    policyModal.style.display = 'none';
+    localStorage.setItem('cookies-choice', 'rejected');
+    document.getElementById('cookie-banner').style.display = 'none';
+});
 </script>
 
 </body>
 </html>
+
 
 
 
