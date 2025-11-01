@@ -103,7 +103,7 @@ h2 { color: #e91e63; margin-bottom: 20px; text-align: center; }
 .galeria-container { position: relative; overflow: hidden; max-width: 100%; }
 .galeria-slider { display: flex; overflow-x: hidden; gap: 10px; scroll-behavior: smooth; }
 .foto-video { flex: 0 0 auto; width: 200px; }
-.foto-video img, .foto-video video { width: 100%; border-radius: 10px; }
+.foto-video img, .foto-video video { width: 100%; border-radius: 10px; cursor: pointer; }
 
 /* Flechas */
 .galeria-container button {
@@ -113,6 +113,47 @@ h2 { color: #e91e63; margin-bottom: 20px; text-align: center; }
 }
 #prev { left: 10px; }
 #next { right: 10px; }
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+}
+.lightbox.show {
+  display: flex;
+  animation: fadeInLightbox 0.6s forwards;
+}
+@keyframes fadeInLightbox {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.lightbox-content {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  display: block;
+}
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 30px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 2100;
+  transition: 0.3s;
+}
+.lightbox-close:hover { color: #ff69b4; }
 
 /* Formulario */
 form { background-color: #ffe6eb; padding: 20px; border-radius: 15px; max-width: 600px; margin: auto; }
@@ -321,6 +362,15 @@ footer a { color: inherit; font-weight: bold; text-decoration: underline; }
   </div>
 </div>
 
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Visor de imagenes y videos">
+  <span class="lightbox-close" aria-label="Cerrar">&times;</span>
+  <div id="lightbox-inner" style="max-width:90%; max-height:80vh; display:flex; align-items:center; justify-content:center;">
+    <img id="lightbox-img" class="lightbox-content" alt="imagen ampliada" style="display:none;">
+    <video id="lightbox-video" class="lightbox-content" style="display:none;" controls></video>
+  </div>
+</div>
+
 <script>
 // Overlay menú
 const toggle = document.querySelector('.menu-toggle');
@@ -328,8 +378,8 @@ const overlay = document.getElementById('overlay-menu');
 const closeBtn = document.querySelector('#overlay-menu .close-menu');
 const links = document.querySelectorAll('#overlay-menu a');
 
-toggle.addEventListener('click', () => overlay.classList.add('show'));
-closeBtn.addEventListener('click', () => overlay.classList.remove('show'));
+if (toggle) toggle.addEventListener('click', () => overlay.classList.add('show'));
+if (closeBtn) closeBtn.addEventListener('click', () => overlay.classList.remove('show'));
 links.forEach(link => link.addEventListener('click', (e) => {
   e.preventDefault();
   const target = link.getAttribute('href');
@@ -354,31 +404,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-// Galería slider automático + botones
-const slider = document.getElementById('galeria-slider');
-let scrollAmount = 0;
-const step = 210;
-
-// Automático
-setInterval(() => {
-  if (scrollAmount >= slider.scrollWidth - slider.clientWidth) scrollAmount = 0;
-  else scrollAmount += step;
-  slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-}, 4000);
-
-// Botones manuales
-document.getElementById('next').addEventListener('click', () => {
-  scrollAmount += step;
-  if(scrollAmount > slider.scrollWidth - slider.clientWidth) scrollAmount = 0;
-  slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-});
-
-document.getElementById('prev').addEventListener('click', () => {
-  scrollAmount -= step;
-  if(scrollAmount < 0) scrollAmount = slider.scrollWidth - slider.clientWidth;
-  slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-});
-
 // Modal de Política de Privacidad y Cookies
 const openPolicy = document.querySelectorAll('#openPolicy');
 const policyModal = document.getElementById('policyModal');
@@ -401,28 +426,161 @@ rejectPolicy.addEventListener('click', function(){
     localStorage.setItem('cookies-choice', 'rejected');
     document.getElementById('cookie-banner').style.display = 'none';
 });
+
+// Galería slider automático + botones (controlable para pausa/reanudar)
+const slider = document.getElementById('galeria-slider');
+let scrollAmount = 0;
+const step = 210;
+let autoScroll = null;
+
+function startSlider() {
+  // aseguramos que no haya otro intervalo activo
+  stopSlider();
+  autoScroll = setInterval(() => {
+    if (!slider) return;
+    if (scrollAmount >= slider.scrollWidth - slider.clientWidth) scrollAmount = 0;
+    else scrollAmount += step;
+    slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+  }, 4000);
+}
+function stopSlider() {
+  if (autoScroll) { clearInterval(autoScroll); autoScroll = null; }
+}
+
+// iniciar slider
+startSlider();
+
+// Botones manuales
+const nextBtn = document.getElementById('next');
+const prevBtn = document.getElementById('prev');
+if (nextBtn) nextBtn.addEventListener('click', () => {
+  if (!slider) return;
+  scrollAmount += step;
+  if(scrollAmount > slider.scrollWidth - slider.clientWidth) scrollAmount = 0;
+  slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+});
+if (prevBtn) prevBtn.addEventListener('click', () => {
+  if (!slider) return;
+  scrollAmount -= step;
+  if(scrollAmount < 0) scrollAmount = slider.scrollWidth - slider.clientWidth;
+  slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+});
+
+/* --- Lightbox: imágenes y vídeos con pausa del slider --- */
+const images = document.querySelectorAll('.galeria-slider img');
+const videos = document.querySelectorAll('.galeria-slider video');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxVideo = document.getElementById('lightbox-video');
+const lightboxClose = document.querySelector('.lightbox-close');
+
+function openLightboxImage(src, altText = '') {
+  stopSlider();
+  lightboxImg.src = src;
+  lightboxImg.alt = altText || 'Imagen ampliada';
+  lightboxVideo.pause();
+  lightboxVideo.src = '';
+  lightboxVideo.style.display = 'none';
+  lightboxImg.style.display = 'block';
+  lightbox.classList.add('show');
+  lightbox.setAttribute('aria-hidden', 'false');
+  // focus para accesibilidad
+  lightboxClose.focus();
+}
+
+function openLightboxVideo(src) {
+  stopSlider();
+  lightboxImg.style.display = 'none';
+  lightboxVideo.style.display = 'block';
+  lightboxVideo.src = src;
+  // aseguramos que los controles estén visibles
+  lightboxVideo.setAttribute('controls','');
+  // reproducir en lightbox (el usuario puede pausar con controles)
+  lightboxVideo.currentTime = 0;
+  lightboxVideo.play().catch(()=>{/* autoplay may be blocked; user can press play */});
+  lightbox.classList.add('show');
+  lightbox.setAttribute('aria-hidden', 'false');
+  lightboxClose.focus();
+}
+
+// Imágenes: abrir lightbox al click
+images.forEach(img => {
+  img.style.cursor = 'pointer';
+  img.addEventListener('click', (e) => {
+    openLightboxImage(img.src, img.alt);
+  });
+});
+
+// Vídeos en el slider:
+// - Si el usuario hace click en el vídeo, abrimos el lightbox con el mismo source y pausamos la miniatura.
+// - Si el vídeo intenta reproducirse dentro del slider (evento 'play'), lo pausamos inmediatamente y abrimos el lightbox.
+videos.forEach(vid => {
+  // al hacer click en el elemento de vídeo abrimos lightbox
+  vid.style.cursor = 'pointer';
+  vid.addEventListener('click', (e) => {
+    // evita que el propio thumbnail comience a reproducirse
+    e.preventDefault();
+    e.stopPropagation();
+    // obtener la primera source
+    const source = vid.querySelector('source');
+    const src = source ? source.src : vid.currentSrc;
+    openLightboxVideo(src);
+  });
+
+  // si por alguna razón el thumbnail comienza a reproducirse (ej. tap en móvil), lo interceptamos
+  vid.addEventListener('play', (e) => {
+    // pausamos thumbnail y abrimos lightbox
+    try { vid.pause(); } catch(err){}
+    const source = vid.querySelector('source');
+    const src = source ? source.src : vid.currentSrc;
+    openLightboxVideo(src);
+  });
+});
+
+// Cerrar lightbox función
+function closeLightbox() {
+  lightbox.classList.remove('show');
+  // detener video si estaba reproduciéndose
+  if (!lightboxVideo.paused) {
+    try { lightboxVideo.pause(); } catch(err){}
+  }
+  // limpiar src para liberar memoria
+  lightboxVideo.src = '';
+  lightboxImg.src = '';
+  lightbox.setAttribute('aria-hidden', 'true');
+  startSlider();
+}
+
+// Cerrar con la X
+lightboxClose.addEventListener('click', () => {
+  closeLightbox();
+});
+
+// Cerrar al hacer clic fuera del contenido (en fondo)
+lightbox.addEventListener('click', (e) => {
+  // si el click es sobre el propio lightbox (no sobre img/video), cerramos
+  const inner = document.getElementById('lightbox-inner');
+  if (e.target === lightbox || e.target === inner) {
+    // si clic en contenedor interior también cierra (comodidad)
+    closeLightbox();
+  }
+});
+
+// cerrar con tecla Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && lightbox.classList.contains('show')) {
+    closeLightbox();
+  }
+});
+
+/* Accessibility: evitar tabulación detrás del lightbox mientras está abierto */
+document.addEventListener('focus', function(e){
+  if (lightbox.classList.contains('show') && !lightbox.contains(e.target)) {
+    e.stopPropagation();
+    lightboxClose.focus();
+  }
+}, true);
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
