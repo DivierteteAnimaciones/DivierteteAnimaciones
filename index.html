@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <!-- Google tag (gtag.js) -->
@@ -8,6 +8,7 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+
   gtag('config', 'G-EVB4L9KZ9E');
 </script>
 <meta charset="UTF-8" />
@@ -15,19 +16,23 @@
 <meta name="description" content="Diviértete Animaciones - Pásatelo en grande con DIVIÉRTETE." />
 <title>Diviértete Animaciones</title>
 
+<!-- Favicon (icono en pestaña del navegador) -->
 <link rel="icon" type="image/png" href="https://www.divierteteanimaciones.com/logo_mejorado.png">
 <link rel="apple-touch-icon" href="https://www.divierteteanimaciones.com/logo_mejorado.png">
 
+<!-- Metadatos para compartir en redes sociales -->
 <meta property="og:title" content="Diviértete Animaciones 🎈" />
 <meta property="og:description" content="Animaciones infantiles, cuentacuentos, talleres, globoflexia y más diversión en Mallorca." />
 <meta property="og:image" content="https://www.divierteteanimaciones.com/logo_mejorado.png" />
 <meta property="og:url" content="https://www.divierteteanimaciones.com/" />
 <meta property="og:type" content="website" />
 
+<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Diviértete Animaciones 🎉" />
 <meta name="twitter:description" content="Pásatelo en grande con DIVIÉRTETE. Animaciones infantiles, cuentacuentos, talleres y mucho más." />
 <meta name="twitter:image" content="https://www.divierteteanimaciones.com/logo_mejorado.png" />
+
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
@@ -52,6 +57,7 @@ header img { height: 50px; }
 nav a { text-decoration: none; color: #333; font-weight: bold; margin: 0 15px; }
 nav a:hover { color: #007f4e; }
 
+/* Menú hamburguesa overlay */
 .menu-toggle { display: none; font-size: 28px; color: white; cursor: pointer; background: none; border: none; z-index: 1100; }
 #overlay-menu { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffc0cb; flex-direction: column; align-items: center; justify-content: center; z-index: 1050; }
 #overlay-menu.show { display: flex; }
@@ -59,15 +65,19 @@ nav a:hover { color: #007f4e; }
 #overlay-menu a:hover { color: #007f4e; }
 #overlay-menu .close-menu { position: absolute; top: 20px; right: 30px; font-size: 2em; cursor: pointer; }
 
+/* Hero */
 .hero { text-align: center; background: url('comunion.jpg') center/cover no-repeat; height: 60vh; display: flex; align-items: center; justify-content: center; color: white; font-size: 2em; text-shadow: 2px 2px 5px black; flex-direction: column; }
 .hero img { margin-top: 20px; width: 80%; max-width: 500px; border-radius: 10px; }
 
+/* Secciones */
 section { padding: 50px 20px; max-width: 1200px; margin: auto; position: relative; z-index: 1; scroll-margin-top: 70px; }
 h2 { color: #e91e63; margin-bottom: 20px; text-align: center; }
 
+/* Sobre nosotros */
 .sobre { text-align: center; }
 .sobre img { width: 100%; max-width: 400px; border-radius: 15px; display: block; margin: 20px auto 0; }
 
+/* Servicios */
 .servicios { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
 .card { perspective: 1000px; width: 250px; height: 250px; }
 .card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; }
@@ -89,11 +99,13 @@ h2 { color: #e91e63; margin-bottom: 20px; text-align: center; }
 .card-back { transform: rotateY(180deg); flex-direction: column; }
 .card-back img { width: 100%; max-height: 80px; object-fit: cover; margin-top: 10px; border-radius: 8px; }
 
+/* Galería tipo slider */
 .galeria-container { position: relative; overflow: hidden; max-width: 100%; }
 .galeria-slider { display: flex; overflow-x: hidden; gap: 10px; scroll-behavior: smooth; }
 .foto-video { flex: 0 0 auto; width: 200px; }
 .foto-video img, .foto-video video { width: 100%; border-radius: 10px; cursor: pointer; }
 
+/* Flechas */
 .galeria-container button {
   position: absolute; top: 50%; transform: translateY(-50%);
   background: rgba(0,0,0,0.5); color: #fff; border: none; font-size: 2em; padding: 0 10px; cursor: pointer; border-radius: 5px;
@@ -102,6 +114,7 @@ h2 { color: #e91e63; margin-bottom: 20px; text-align: center; }
 #prev { left: 10px; }
 #next { right: 10px; }
 
+/* Lightbox */
 .lightbox {
   display: none;
   position: fixed;
@@ -114,16 +127,40 @@ h2 { color: #e91e63; margin-bottom: 20px; text-align: center; }
   align-items: center;
   opacity: 0;
 }
-.lightbox.show { display: flex; animation: fadeInLightbox 0.6s forwards; }
-@keyframes fadeInLightbox { from { opacity: 0; } to { opacity: 1; } }
-.lightbox-content { max-width: 90%; max-height: 80vh; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); display: block; }
-.lightbox-close { position: absolute; top: 18px; right: 30px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 2100; transition: 0.3s; }
+.lightbox.show {
+  display: flex;
+  animation: fadeInLightbox 0.6s forwards;
+}
+@keyframes fadeInLightbox {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.lightbox-content {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  display: block;
+}
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 30px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 2100;
+  transition: 0.3s;
+}
 .lightbox-close:hover { color: #ff69b4; }
 
+/* Formulario */
 form { background-color: #ffe6eb; padding: 20px; border-radius: 15px; max-width: 600px; margin: auto; }
 form input, form textarea, form select, form button { display: block; width: 100%; margin-bottom: 15px; padding: 10px; border-radius: 8px; border: 1px solid #ccc; }
 form button { background: #ffc107; border: none; font-weight: bold; cursor: pointer; }
 
+/* Contacto y footer */
 footer { text-align: center; padding: 20px; background-color: #f8bbd0; }
 #whatsapp {
   position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white;
@@ -134,9 +171,11 @@ footer { text-align: center; padding: 20px; background-color: #f8bbd0; }
 .contacto-info img { max-width: 150px; margin: 10px auto; display: block; }
 .contacto-info i.fab { font-size: 24px; margin: 10px; }
 
+/* Responsive */
 @media (max-width: 1024px) { .card { width: 45%; height: auto; } .card-inner { min-height: 250px; } .card-back img { max-height: 80px; } .foto-video { width: 150px; } }
 @media (max-width: 768px) { .card { width: 100%; height: auto; } .card-inner { min-height: 250px; } .card-back img { max-height: 80px; } .menu-toggle { display: block; } nav { display: none; } .foto-video { width: 120px; } }
 
+/* 🍪 Banner de cookies */
 .cookie-banner {
   position: fixed; bottom: 0; left: 0; right: 0;
   background-color: #ff69b4; color: #fff; text-align: center;
@@ -150,22 +189,11 @@ footer { text-align: center; padding: 20px; background-color: #f8bbd0; }
 .cookie-btn.reject { background-color: #f44336; color: white; }
 .cookie-btn:hover { opacity: 0.9; }
 
+/* Footer enlaces */
 footer a { color: inherit; font-weight: bold; text-decoration: underline; }
-
-/* Banner Black Friday */
-#black-friday-banner {
-  background-color: #ff0000;
-  color: #fff;
-  text-align: center;
-  padding: 15px 20px;
-  font-size: 1.2em;
-  font-weight: bold;
-  text-shadow: 1px 1px 2px black;
-}
-#black-friday-banner a { color: #fff; text-decoration: underline; }
 </style>
-
 </head>
+
 <body>
 
 <header>
@@ -180,10 +208,6 @@ footer a { color: inherit; font-weight: bold; text-decoration: underline; }
     <a href="#contacto">Contacto</a>
   </nav>
 </header>
-
-<div id="black-friday-banner">
-  ¡Oferta Black Friday! 🎉 Reserva tu animación y consigue un 20% de descuento. <a href="#presupuesto">¡Pide tu presupuesto ahora!</a>
-</div>
 
 <div id="overlay-menu">
   <span class="close-menu"><i class="fas fa-times"></i></span>
@@ -225,52 +249,92 @@ footer a { color: inherit; font-weight: bold; text-decoration: underline; }
     <div class="galeria-slider" id="galeria-slider">
       <div class="foto-video"><video controls><source src="ANIMACIÓN.mp4" type="video/mp4" /></video></div>
       <div class="foto-video"><img src="tallerpintura.jpg" alt="Evento 1" /></div>
-      <div class="foto-video"><img src="20251031.JPG" alt="Evento 2" /></div>
-      <div class="foto-video"><img src="cumple.jpg" alt="Evento 3" /></div>
+      <div class="foto-video"><img src="20251031.JPG" alt="Evento 25" /></div>
+      <div class="foto-video"><img src="pintacaras3.jpg" alt="Evento 2" /></div>
+       <div class="foto-video"><video controls><source src="20251027_RCDMALLORCA.mp4" type="video/mp4" /></video></div>
+      <div class="foto-video"><img src="CAMISETA.jpg" alt="Evento 3" /></div>
+      <div class="foto-video"><video controls><source src="comunion.mp4" type="video/mp4" /></video></div>
+      <div class="foto-video"><img src="navidad.jpg" alt="Evento 4" /></div>
+      <div class="foto-video"><img src="peto.jpg" alt="Evento 5" /></div>
+      <div class="foto-video"><video controls><source src="colegios.mp4" type="video/mp4" /></video></div>
+      <div class="foto-video"><img src="juegosplaya.jpg" alt="Evento 6" /></div>
+      <div class="foto-video"><video controls><source src="comunionagua.mp4" type="video/mp4" /></video></div>
+      <div class="foto-video"><img src="20251019.jpg" alt="Evento 7" /></div>
+      <div class="foto-video"><img src="20251019_arte.jpg" alt="Evento 8" /></div>
+      <div class="foto-video"><img src="20251019_artetaller.jpg" alt="Evento 9" /></div>
+      <div class="foto-video"><img src="20251019_bobma.jpg" alt="Evento 10" /></div>
+      <div class="foto-video"><img src="20251019_canguro.jpg" alt="Evento 11" /></div>
+      <div class="foto-video"><img src="20251019_comunion.jpg" alt="Evento 12" /></div>
+      <div class="foto-video"><img src="20251019_conos.jpg" alt="Evento 13" /></div>
+      <div class="foto-video"><img src="20251019_fiesta.jpg" alt="Evento 14" /></div>
+      <div class="foto-video"><img src="20251019_futbolchino.jpg" alt="Evento 15" /></div>
+      <div class="foto-video"><img src="20251019_jardin.jpg" alt="Evento 16" /></div>
+      <div class="foto-video"><img src="20251019_mariposas.jpg" alt="Evento 17" /></div>
+      <div class="foto-video"><img src="20251019_minnie.jpg" alt="Evento 18" /></div>
+      <div class="foto-video"><img src="20251019_panyuelito.jpg" alt="Evento 19" /></div>
+      <div class="foto-video"><img src="20251019_pascuas.jpg" alt="Evento 20" /></div>
+      <div class="foto-video"><img src="20251019_pintar.jpg" alt="Evento 21" /></div>
+      <div class="foto-video"><img src="20251019_slime.jpg" alt="Evento 22" /></div>
+      <div class="foto-video"><img src="20251019_spiderman.jpg" alt="Evento 23" /></div>
+      <div class="foto-video"><img src="20251019_tallerarte.jpg" alt="Evento 24" /></div>
+      <div class="foto-video"><video controls><source src="comunion sonsanmarti.mp4" type="video/mp4" /></video></div>
     </div>
   </div>
 </section>
 
 <section id="presupuesto">
   <h2>Pide tu Presupuesto</h2>
-  <form id="formPresupuesto">
-    <input type="text" name="nombre" placeholder="Nombre" required />
-    <input type="email" name="email" placeholder="Correo electrónico" required />
-    <input type="tel" name="telefono" placeholder="Teléfono" required />
-    <select name="servicio" required>
-      <option value="">Selecciona un servicio</option>
-      <option value="Animación Infantil">Animación Infantil</option>
-      <option value="Cuentacuentos">Cuentacuentos</option>
-      <option value="Globoflexia">Globoflexia</option>
-      <option value="Pinta Caras">Pinta Caras</option>
-      <option value="Personaje Disney">Personaje Disney</option>
-      <option value="Talleres">Talleres</option>
-    </select>
-    <textarea name="mensaje" placeholder="Mensaje" required></textarea>
-    <button type="submit">Enviar</button>
+  <form action="https://formspree.io/f/movdpdla" method="POST">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required />
+    <label for="telefono">Teléfono:</label>
+    <input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono" required />
+    <label for="email">Correo Electrónico:</label>
+    <input type="email" id="email" name="email" placeholder="Tu email" required />
+    <label for="fecha">Fecha del Evento:</label>
+    <input type="date" id="fecha" name="fecha" required />
+    <label for="Numero">Número de invitados:</label>
+    <input type="number" id="Numero" name="Numero" required />
+    <label>Servicios que quieres contratar:</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="servicios" value="Animación base 1 hora" /> Animación Infantil 1h</label>
+      <label><input type="checkbox" name="servicios" value="Animación base 2 hora" /> Animación Infantil 2h</label>
+      <label><input type="checkbox" name="servicios" value="Personaje Disney" /> Personaje Disney</label>
+      <label><input type="checkbox" name="servicios" value="Globoflexia" /> Globoflexia</label>
+      <label><input type="checkbox" name="servicios" value="Pintacaras" /> Pintacaras</label>
+      <label><input type="checkbox" name="servicios" value="Talleres" /> Talleres</label>
+      <label><input type="checkbox" name="servicios" value="Servicio Canguro" /> Servicio Canguro</label>
+      <label><input type="checkbox" name="servicios" value="Servicio Comedor" /> Servicio Comedor</label>
+    </div>
+    <label for="mensaje">Mensaje adicional:</label>
+    <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe aquí cualquier detalle adicional"></textarea>
+    <button type="submit">Enviar Presupuesto</button>
   </form>
 </section>
 
 <section id="contacto">
   <h2>Contacto</h2>
   <div class="contacto-info">
-    <p>Email: <a href="mailto:divierteteanimaciones09@gmail.com">divierteteanimaciones09@gmail.com</a></p>
     <img src="logo_mejorado.png" alt="Logo Diviértete" />
-    <p>Redes sociales:</p>
-    <i class="fab fa-facebook-square"></i>
-    <i class="fab fa-instagram"></i>
+    <p><i class="fas fa-map-marker-alt"></i> Mallorca, Islas Baleares</p>
+    <p><i class="fas fa-envelope"></i> divierteteanimaciones09@gmail.com</p>
+    <p><i class="fas fa-phone"></i> +34 648 75 93 73 / +34 693 80 02 61</p>
+    <p><i class="fas fa-clock"></i> Todos los días del año (consulta tu disponibilidad)</p>
+    <div>
+      <a href="https://www.instagram.com/divierteteanimaciones" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/people/Diviertete-Infantil/61554295951211/?sk=about_contact_and_basic_info" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.tiktok.com/@divirtete.animaciones09" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://g.co/kgs/sDPZNY5" target="_blank"><i class="fab fa-google"></i></a>
+    </div>
+    <p>Contacta con nosotros:</p>
+    <a href="https://wa.me/+34648759373" target="_blank"><i class="fab fa-whatsapp"></i> Enviar mensaje por WhatsApp</a>
   </div>
 </section>
 
-<a href="https://wa.me/34648759373" target="_blank" id="whatsapp"><i class="fab fa-whatsapp"></i></a>
-
-<div class="cookie-banner" id="cookie-banner">
-  <p>Usamos cookies para mejorar tu experiencia. ¿Aceptas su uso?</p>
-  <div class="cookie-buttons">
-    <button class="cookie-btn accept">Aceptar</button>
-    <button class="cookie-btn reject">Rechazar</button>
-  </div>
+<div id="whatsapp">
+  <a href="https://wa.me/+34648759373" target="_blank" aria-label="WhatsApp"> <i class="fab fa-whatsapp"></i> </a>
 </div>
+
 <footer>
   <p>© 2025 Diviértete Animaciones. Todos los derechos reservados.</p>
   <p> <a href="#" id="openPolicy" style="color:#007f4e; text-decoration:underline;">Política de Privacidad y Cookies</a> </p>
@@ -521,6 +585,12 @@ document.addEventListener('focus', function(e){
 
 </body>
 </html>
+
+
+
+
+
+
 
 
 
