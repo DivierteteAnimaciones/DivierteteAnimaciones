@@ -2,6 +2,92 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <section id="black-friday-banner">
+  <h2 class="bf-title">⚫⚫BLACK FRIDAY⚫⚫⚫</h2>
+  <p class="bf-subtitle">
+    Disfruta de un increíble <strong>15% de descuento</strong> con DIVIÉRTETE ANIMACIONES🖤<br>
+    ¡¡¡¡RESERVA HOY MISMO!!!🎉🎉🎉<br><br>
+    •Oferta válida desde día 24/11 hasta día 30/11. Para disfrutar en 2025/2026🥰<br>
+    *Promoción disponible con contratación mínima de diferentes servicios para la animación.☺🖤<br>
+    #cumpleaños #animación #fiesta #comuniones #infantil #música #party #descuentosmallorca
+  </p>
+  <a href="#presupuesto" class="bf-btn">Pide tu presupuesto ahora</a>
+  <a href="#presupuesto" class="bf-btn bf-reserve">Reservar Black Friday</a>
+</section>
+
+<style>
+#black-friday-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #ff0000, #ff6600);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  z-index: 9999;
+  border-radius: 0 0 15px 15px;
+  animation: pulse 2s infinite alternate;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 2px 2px 10px #fff, -2px -2px 10px #ff0; }
+  50% { text-shadow: 2px 2px 20px #ff0, -2px -2px 20px #fff; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+@keyframes btn-pulse {
+  0% { transform: scale(1); box-shadow: 0 0 5px #fff; }
+  50% { transform: scale(1.1); box-shadow: 0 0 20px #fff; }
+  100% { transform: scale(1); box-shadow: 0 0 5px #fff; }
+}
+
+.bf-title {
+  font-size: 2em;
+  margin-bottom: 10px;
+  animation: glow 1.5s infinite alternate;
+}
+
+.bf-subtitle {
+  font-size: 1em;
+  margin-bottom: 10px;
+  line-height: 1.4em;
+}
+
+.bf-btn {
+  display: inline-block;
+  background: #fff;
+  color: #ff0000;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 1em;
+  margin: 5px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.bf-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #fff;
+}
+
+.bf-reserve {
+  animation: btn-pulse 1.5s infinite;
+}
+
+/* Para que el contenido no quede oculto debajo del banner */
+body {
+  padding-top: 180px; /* Ajustar según la altura del banner */
+}
+</style>
+
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVB4L9KZ9E"></script>
 <script>
@@ -56,6 +142,7 @@ header {
 header img { height: 50px; }
 nav a { text-decoration: none; color: #333; font-weight: bold; margin: 0 15px; }
 nav a:hover { color: #007f4e; }
+  
 
 /* Menú hamburguesa overlay */
 .menu-toggle { display: none; font-size: 28px; color: white; cursor: pointer; background: none; border: none; z-index: 1100; }
@@ -64,6 +151,7 @@ nav a:hover { color: #007f4e; }
 #overlay-menu a { font-size: 2em; margin: 20px 0; color: white; text-decoration: none; font-weight: bold; }
 #overlay-menu a:hover { color: #007f4e; }
 #overlay-menu .close-menu { position: absolute; top: 20px; right: 30px; font-size: 2em; cursor: pointer; }
+  
 
 /* Hero */
 .hero { text-align: center; background: url('comunion.jpg') center/cover no-repeat; height: 60vh; display: flex; align-items: center; justify-content: center; color: white; font-size: 2em; text-shadow: 2px 2px 5px black; flex-direction: column; }
@@ -241,84 +329,6 @@ footer a { color: inherit; font-weight: bold; text-decoration: underline; }
     <div class="card"><div class="card-inner"><div class="card-front">Talleres</div><div class="card-back">Experimenta con talleres como slime, pulseras, pequeños artistas y más!<img src="slime.jpg" alt="Talleres" /></div></div></div>
   </div>
 </section>
-  <section id="black-friday-banner" style="position: relative; background: linear-gradient(90deg, #ff0000, #ff6600); color: white; text-align: center; padding: 40px 20px; border-radius: 15px; margin: 30px 0; overflow: hidden;">
-  <h2 class="bf-title">🔥 ¡Black Friday en Diviértete Animaciones! 🔥</h2>
-  <p class="bf-subtitle">Aprovecha <strong>descuentos especiales</strong> en animaciones infantiles, talleres y actividades. 🎈</p>
-  <a href="#presupuesto" class="bf-btn">Pide tu presupuesto ahora</a>
-  <a href="#presupuesto" class="bf-btn bf-reserve">Reservar Black Friday</a>
-</section>
-
-<style>
-@keyframes glow {
-  0%, 100% { text-shadow: 2px 2px 10px #fff, -2px -2px 10px #ff0; }
-  50% { text-shadow: 2px 2px 20px #ff0, -2px -2px 20px #fff; }
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.02); }
-  100% { transform: scale(1); }
-}
-
-@keyframes fire-flicker {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.1); opacity: 0.8; }
-}
-
-@keyframes btn-pulse {
-  0% { transform: scale(1); box-shadow: 0 0 5px #fff; }
-  50% { transform: scale(1.1); box-shadow: 0 0 20px #fff; }
-  100% { transform: scale(1); box-shadow: 0 0 5px #fff; }
-}
-
-#black-friday-banner {
-  animation: pulse 2s infinite alternate;
-}
-
-.bf-title {
-  font-size: 2em;
-  margin-bottom: 15px;
-  animation: glow 1.5s infinite alternate;
-  display: inline-block;
-}
-
-.bf-title::before,
-.bf-title::after {
-  content: "🔥";
-  display: inline-block;
-  margin: 0 8px;
-  animation: fire-flicker 1s infinite alternate;
-}
-
-.bf-subtitle {
-  font-size: 1.2em;
-  margin-bottom: 20px;
-}
-
-.bf-btn {
-  display: inline-block;
-  background: #fff;
-  color: #ff0000;
-  font-weight: bold;
-  padding: 12px 25px;
-  border-radius: 25px;
-  text-decoration: none;
-  font-size: 1.1em;
-  margin: 5px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.bf-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #fff;
-}
-
-.bf-reserve {
-  animation: btn-pulse 1.5s infinite;
-}
-</style>
-
-
 <section id="galeria">
   <h2>Galería</h2>
   <div class="galeria-container">
@@ -664,6 +674,7 @@ document.addEventListener('focus', function(e){
 
 </body>
 </html>
+
 
 
 
