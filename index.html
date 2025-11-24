@@ -2,78 +2,107 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
- <section id="black-friday-banner">
-  <a href="#presupuesto" class="bf-btn">Pide tu presupuesto ahora</a>
-  <div class="scrolling-text">
-    ⚫⚫BLACK FRIDAY⚫⚫⚫ - Disfruta de un increíble 15% de descuento con DIVIÉRTETE ANIMACIONES🖤 - ¡¡¡¡RESERVA HOY MISMO!!!🎉🎉🎉 •Oferta válida desde día 24/11 hasta día 30/11. Para disfrutar en 2025/2026🥰 •Promoción disponible con contratación mínima de diferentes servicios para la animación.☺🖤 #cumpleaños #animación #fiesta #comuniones #infantil #música #party #descuentosmallorca
+<!-- Black Friday Banner -->
+<div class="blackfriday-banner">
+  <button class="bf-button bf-left" onclick="window.location.href='#presupuesto'">Pide tu presupuesto</button>
+  <div class="bf-marquee">
+    <span>¡Black Friday! Descuento especial en animaciones infantiles – Reserva ahora y consigue tu presupuesto gratis.</span>
   </div>
-  <a href="tel:+34648759373" class="bf-btn bf-reserve">Reservar Black Friday</a>
-</section>
+  <button class="bf-button bf-right" onclick="window.open('https://wa.me/34648759373?text=Hola,%20quiero%20reservar%20mi%20Black%20Friday', '_blank')">Reserva tu Black Friday</button>
+</div>
 
 <style>
-#black-friday-banner {
-  position: fixed;
+.blackfriday-banner {
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
-  background: linear-gradient(90deg, #ff0000, #ff6600);
-  color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5px 10px;
+  background: linear-gradient(90deg, #ff4d4d, #ffcc00);
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 5px;
   z-index: 9999;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  height: 50px;
   overflow: hidden;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
 }
 
-.scrolling-text {
-  white-space: nowrap;
+.bf-marquee {
   flex: 1;
   margin: 0 10px;
-  animation: scroll-left 60s linear infinite; /* más lento */
-  font-weight: bold;
-  font-size: 0.9em;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
 }
 
-@keyframes scroll-left {
+.bf-marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 20s linear infinite;
+  color: #fff;
+  font-size: 1rem;
+}
+
+/* Animación de movimiento */
+@keyframes marquee {
   0% { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
 }
 
-.bf-btn {
-  display: inline-block;
+/* Animación de color suave */
+.bf-marquee span {
+  animation: marquee 20s linear infinite, colorShift 3s ease-in-out infinite alternate;
+}
+
+@keyframes colorShift {
+  0% { color: #ffffff; }
+  50% { color: #ffff66; }
+  100% { color: #ffffff; }
+}
+
+.bf-button {
   background: #fff;
-  color: #ff0000;
+  color: #ff4d4d;
+  border: none;
+  padding: 8px 15px;
   font-weight: bold;
-  padding: 5px 15px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-size: 0.9em;
-  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  border-radius: 5px;
+  flex-shrink: 0;
+  transition: 0.3s;
 }
 
-.bf-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px #fff;
+.bf-button:hover {
+  background: #ffe066;
+  color: #ff0000;
 }
 
-.bf-reserve {
-  animation: btn-pulse 1.5s infinite;
-}
-
-@keyframes btn-pulse {
-  0% { transform: scale(1); box-shadow: 0 0 3px #fff; }
-  50% { transform: scale(1.1); box-shadow: 0 0 10px #fff; }
-  100% { transform: scale(1); box-shadow: 0 0 3px #fff; }
-}
-
-/* Ajuste del contenido debajo del banner */
-body {
-  padding-top: 60px; /* altura del banner */
+/* Responsive */
+@media (max-width: 768px) {
+  .blackfriday-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+  }
+  .bf-marquee {
+    margin: 5px 0;
+  }
+  .bf-button {
+    width: 80%;
+    margin: 5px 0;
+  }
+  .bf-marquee span {
+    font-size: 1.1rem;
+  }
 }
 </style>
+
+<script>
+// Inicializar marquee dinámico
+const marquee = document.querySelector('.bf-marquee span');
+const text = marquee.textContent;
+marquee.textContent = text;
+</script>
 
 
   <!-- Google tag (gtag.js) -->
@@ -662,6 +691,7 @@ document.addEventListener('focus', function(e){
 
 </body>
 </html>
+
 
 
 
