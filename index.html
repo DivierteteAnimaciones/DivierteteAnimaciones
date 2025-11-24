@@ -2,17 +2,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <section id="black-friday-banner">
-  <h2 class="bf-title">⚫⚫BLACK FRIDAY⚫⚫⚫</h2>
-  <p class="bf-subtitle">
-    Disfruta de un increíble <strong>15% de descuento</strong> con DIVIÉRTETE ANIMACIONES🖤<br>
-    ¡¡¡¡RESERVA HOY MISMO!!!🎉🎉🎉<br><br>
-    •Oferta válida desde día 24/11 hasta día 30/11. Para disfrutar en 2025/2026🥰<br>
-    *Promoción disponible con contratación mínima de diferentes servicios para la animación.☺🖤<br>
-    #cumpleaños #animación #fiesta #comuniones #infantil #música #party #descuentosmallorca
-  </p>
+ <section id="black-friday-banner">
+  <div class="scrolling-text">
+    ⚫⚫BLACK FRIDAY⚫⚫⚫ - Disfruta de un increíble 15% de descuento con DIVIÉRTETE ANIMACIONES🖤 - ¡¡¡¡RESERVA HOY MISMO!!!🎉🎉🎉 •Oferta válida desde día 24/11 hasta día 30/11. Para disfrutar en 2025/2026🥰 •Promoción disponible con contratación mínima de diferentes servicios para la animación.☺🖤 #cumpleaños #animación #fiesta #comuniones #infantil #música #party #descuentosmallorca
+  </div>
   <a href="#presupuesto" class="bf-btn">Pide tu presupuesto ahora</a>
-  <a href="#presupuesto" class="bf-btn bf-reserve">Reservar Black Friday</a>
+  <a href="tel:+34648759373" class="bf-btn bf-reserve">Reservar Black Friday</a>
 </section>
 
 <style>
@@ -24,40 +19,27 @@
   background: linear-gradient(90deg, #ff0000, #ff6600);
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 10px 20px;
   z-index: 9999;
-  border-radius: 0 0 15px 15px;
-  animation: pulse 2s infinite alternate;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  overflow: hidden;
+  height: 50px;
 }
 
-@keyframes glow {
-  0%, 100% { text-shadow: 2px 2px 10px #fff, -2px -2px 10px #ff0; }
-  50% { text-shadow: 2px 2px 20px #ff0, -2px -2px 20px #fff; }
+.scrolling-text {
+  white-space: nowrap;
+  display: inline-block;
+  animation: scroll-left 20s linear infinite;
+  font-weight: bold;
+  font-size: 0.9em;
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.02); }
-  100% { transform: scale(1); }
-}
-
-@keyframes btn-pulse {
-  0% { transform: scale(1); box-shadow: 0 0 5px #fff; }
-  50% { transform: scale(1.1); box-shadow: 0 0 20px #fff; }
-  100% { transform: scale(1); box-shadow: 0 0 5px #fff; }
-}
-
-.bf-title {
-  font-size: 2em;
-  margin-bottom: 10px;
-  animation: glow 1.5s infinite alternate;
-}
-
-.bf-subtitle {
-  font-size: 1em;
-  margin-bottom: 10px;
-  line-height: 1.4em;
+@keyframes scroll-left {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }
 
 .bf-btn {
@@ -65,26 +47,32 @@
   background: #fff;
   color: #ff0000;
   font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 25px;
+  padding: 5px 15px;
+  border-radius: 20px;
   text-decoration: none;
-  font-size: 1em;
-  margin: 5px;
+  font-size: 0.9em;
+  margin-left: 10px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .bf-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 15px #fff;
+  box-shadow: 0 0 10px #fff;
 }
 
 .bf-reserve {
   animation: btn-pulse 1.5s infinite;
 }
 
-/* Para que el contenido no quede oculto debajo del banner */
+@keyframes btn-pulse {
+  0% { transform: scale(1); box-shadow: 0 0 3px #fff; }
+  50% { transform: scale(1.1); box-shadow: 0 0 10px #fff; }
+  100% { transform: scale(1); box-shadow: 0 0 3px #fff; }
+}
+
+/* Ajuste del contenido debajo del banner */
 body {
-  padding-top: 180px; /* Ajustar según la altura del banner */
+  padding-top: 60px; /* altura del banner */
 }
 </style>
 
@@ -674,6 +662,7 @@ document.addEventListener('focus', function(e){
 
 </body>
 </html>
+
 
 
 
