@@ -2,106 +2,43 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
 <!-- agendaabierta2026-banner -->
-<div class="Agenda Abierta 2026">
-  <button class="bf-button bf-left" onclick="window.location.href='#presupuesto'">Pide tu presupuesto</button>
+<div class="agendaabierta2026-banner">
+  <button class="bf-button bf-left" onclick="window.location.href='#presupuesto'">
+    Pide tu presupuesto
+  </button>
+
   <div class="bf-marquee">
     <div class="marquee-content">
-      <span>.🗓🗓 Agenda Abierta 2026 📅📅
-Ya tenemos agenda abierta para éste 2026
- &nbsp;&nbsp;&nbsp;</span>
-       <span>.🗓🗓 Agenda Abierta 2026 📅📅
-Ya tenemos agenda abierta para éste 2026
- &nbsp;&nbsp;&nbsp;</span>
+      <span>🗓✨ Agenda Abierta 2026 ✨📅 — ¡Reserva tu fecha con Diviértete Animaciones! &nbsp;&nbsp;&nbsp;</span>
+      <span>🗓✨ Agenda Abierta 2026 ✨📅 — ¡Reserva tu fecha con Diviértete Animaciones! &nbsp;&nbsp;&nbsp;</span>
     </div>
   </div>
-  <button class="bf-button bf-right" onclick="window.open('https://wa.me/34648759373?text=Hola,%20quiero%20reservar%20mi%20Black%20Friday', '_blank')">Agenda Abierta 2026</button>
+
+  <button class="bf-button bf-right"
+    onclick="window.open('https://wa.me/34648759373?text=Hola,%20quiero%20reservar%20mi%20fecha%20para%20la%20Agenda%20Abierta%202026', '_blank')">
+    Agenda Abierta 2026
+  </button>
 </div>
 
 <style>
+/* 🎨 PALETA: Rosa principal + Verde y Amarillo secundarios */
+:root {
+  --rosa: #ff4fa3;
+  --amarillo: #ffeb3b;
+  --verde: #6bd36b;
+}
+
+/* CONTENEDOR GENERAL */
 .agendaabierta2026-banner {
   position: sticky;
   top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(90deg, #ff4d4d, #ffcc00);
-  color: #fff;
-  font-weight: bold;
-  padding: 10px 5px;
-  z-index: 9999;
-  overflow: hidden;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-}
+  background: linear-gradient(90de
 
-.bf-marquee {
-  flex: 1;
-  margin: 0 10px;
-  overflow: hidden;
-  white-space: nowrap;
-  position: relative;
-}
 
-.marquee-content {
-  display: inline-block;
-  animation: marquee 25s linear infinite;
-}
-
-.marquee-content span {
-  display: inline-block;
-  color: #fff;
-  font-size: 1rem;
-  animation: colorShift 5s ease-in-out infinite alternate;
-}
-
-/* Movimiento continuo */
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); } /* -50% porque repetimos el texto dos veces */
-}
-
-@keyframes colorShift {
-  0% { color: #ffffff; }
-  50% { color: #ffff66; }
-  100% { color: #ffffff; }
-}
-
-.bf-button {
-  background: #fff;
-  color: #ff4d4d;
-  border: none;
-  padding: 8px 15px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 5px;
-  flex-shrink: 0;
-  transition: 0.3s;
-}
-
-.bf-button:hover {
-  background: #ffe066;
-  color: #ff0000;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .agendaabierta2026-banner {
-    flex-direction: column;
-    text-align: center;
-    padding: 10px;
-  }
-  .bf-marquee {
-    margin: 5px 0;
-  }
-  .bf-button {
-    width: 80%;
-    margin: 5px 0;
-  }
-  .marquee-content span {
-    font-size: 1.1rem;
-  }
-}
 </style>
 <script>
 // Inicializar marquee dinámico
@@ -697,6 +634,7 @@ document.addEventListener('focus', function(e){
 
 </body>
 </html>
+
 
 
 
