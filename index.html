@@ -2,56 +2,67 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<!-- Banner Agenda Abierta 2026 Dinámico -->
-<div class="agendaabierta2026-banner">
-
-  <!-- Globos decorativos -->
-  <div class="globo globo-left"></div>
-  <div class="globo globo-right"></div>
-
-  <button class="bf-button bf-left" onclick="window.location.href='#presupuesto'">
-    📩 Pide tu presupuesto
-  </button>
-
-  <div class="bf-marquee">
-    <div class="marquee-content">
-      <span>🎉✨ Agenda Abierta 2026 — ¡Reserva tu fecha con Diviértete Animaciones! ✨🎉 &nbsp;&nbsp;&nbsp;</span>
-      <span>🎉✨ Agenda Abierta 2026 — ¡Reserva tu fecha con Diviértete Animaciones! ✨🎉 &nbsp;&nbsp;&nbsp;</span>
-    </div>
-  </div>
-
-  <button class="bf-button bf-right"
-    onclick="window.open('https://wa.me/34648759373?text=Hola,%20quiero%20reservar%20mi%20fecha%20para%20la%20Agenda%20Abierta%202026', '_blank')">
-    📅 Agenda 2026
-  </button>
-
-  <!-- Confeti animado -->
-  <div class="confeti"></div>
-
-</div>
-
-<style>
-:root {
-  --rosa: #ff4fa3;
-  --amarillo: #ffeb3b;
-  --verde: #6bd36b;
+.hero-banner {
+  width: 100%;
+  padding: 120px 20px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, #ff69b4 0%, #ffb6c1 50%, #fff 100%);
+  background-size: 300% 300%;
+  animation: bannerMove 8s ease-in-out infinite;
 }
 
-/* CONTENEDOR GENERAL */
-.agendaabierta2026-banner {
-  position: sticky;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: linear-gradient(90deg, #ff4fa3, #ffcc00, #6bd36b);
+/* Animación del fondo */
+@keyframes bannerMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.25);
+}
+
+.subtitulo {
+  font-size: 1.4rem;
+  background: rgba(0,0,0,0.2);
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  backdrop-filter: blur(3px);
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 15px 28px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: #ff69b4;
   color: #fff;
-  font-weight: bold;
-  padding: 12px 15px;
-  z-index: 9999;
-  overflow: hidden;
-  border-bottom: 5px solid #ff4fa3;
-  box-shadow: 0 5px 12px rgba(0,0,0,0.25)
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.3s;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+}
+
+.hero-btn:hover {
+  background: #ff1493;
+  transform: scale(1.08);
+}
+  
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.3rem;
+  }
+  .subtitulo {
+    font-size: 1.1rem;
+  }
+}
+
 
 
 </style>
@@ -649,6 +660,7 @@ document.addEventListener('focus', function(e){
 
 </body>
 </html>
+
 
 
 
