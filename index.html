@@ -2,27 +2,35 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<!-- agendaabierta2026-banner -->
+<!-- Banner Agenda Abierta 2026 Dinámico -->
 <div class="agendaabierta2026-banner">
+
+  <!-- Globos decorativos -->
+  <div class="globo globo-left"></div>
+  <div class="globo globo-right"></div>
+
   <button class="bf-button bf-left" onclick="window.location.href='#presupuesto'">
-    Pide tu presupuesto
+    📩 Pide tu presupuesto
   </button>
 
   <div class="bf-marquee">
     <div class="marquee-content">
-      <span>🗓✨ Agenda Abierta 2026 ✨📅 — ¡Reserva tu fecha con Diviértete Animaciones! &nbsp;&nbsp;&nbsp;</span>
-      <span>🗓✨ Agenda Abierta 2026 ✨📅 — ¡Reserva tu fecha con Diviértete Animaciones! &nbsp;&nbsp;&nbsp;</span>
+      <span>🎉✨ Agenda Abierta 2026 — ¡Reserva tu fecha con Diviértete Animaciones! ✨🎉 &nbsp;&nbsp;&nbsp;</span>
+      <span>🎉✨ Agenda Abierta 2026 — ¡Reserva tu fecha con Diviértete Animaciones! ✨🎉 &nbsp;&nbsp;&nbsp;</span>
     </div>
   </div>
 
   <button class="bf-button bf-right"
     onclick="window.open('https://wa.me/34648759373?text=Hola,%20quiero%20reservar%20mi%20fecha%20para%20la%20Agenda%20Abierta%202026', '_blank')">
-    Agenda Abierta 2026
+    📅 Agenda 2026
   </button>
+
+  <!-- Confeti animado -->
+  <div class="confeti"></div>
+
 </div>
 
 <style>
-/* 🎨 PALETA: Rosa principal + Verde y Amarillo secundarios */
 :root {
   --rosa: #ff4fa3;
   --amarillo: #ffeb3b;
@@ -36,7 +44,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(90de
+  background: linear-gradient(90deg, #ff4fa3, #ffcc00, #6bd36b);
+  color: #fff;
+  font-weight: bold;
+  padding: 12px 15px;
+  z-index: 9999;
+  overflow: hidden;
+  border-bottom: 5px solid #ff4fa3;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.25)
 
 
 </style>
@@ -634,6 +649,7 @@ document.addEventListener('focus', function(e){
 
 </body>
 </html>
+
 
 
 
