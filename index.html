@@ -2,66 +2,144 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-.hero-banner {
-  width: 100%;
-  padding: 120px 20px;
+<!-- Banner Agenda Abierta Dinámico -->
+<div class="agendaabierta-banner">
+
+  <!-- Globos decorativos -->
+  <div class="globo globo-left"></div>
+  <div class="globo globo-right"></div>
+
+  <!-- Contenido principal -->
+  <div class="banner-content">
+    <h1>🗓 Agenda Abierta 2026 🎉</h1>
+    <p>¡Reserva tu fecha con Diviértete Animaciones!</p>
+    <a href="#presupuesto" class="banner-btn">📩 Pide tu presupuesto</a>
+    <a href="https://wa.me/34648759373?text=Hola,%20quiero%20reservar%20mi%20fecha%20para%20la%20Agenda%20Abierta%202026" 
+       target="_blank" class="banner-btn wa-btn">📅 WhatsApp</a>
+  </div>
+
+  <!-- Confeti animado -->
+  <div class="confeti"></div>
+</div>
+
+<style>
+:root {
+  --rosa: #ff4fa3;
+  --amarillo: #ffeb3b;
+  --verde: #6bd36b;
+}
+
+/* CONTENEDOR GENERAL */
+.agendaabierta-banner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  color: white;
-  background: linear-gradient(135deg, #ff69b4 0%, #ffb6c1 50%, #fff 100%);
-  background-size: 300% 300%;
-  animation: bannerMove 8s ease-in-out infinite;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, var(--rosa), var(--amarillo), var(--verde));
+  overflow: hidden;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  border-bottom: 4px solid var(--verde);
 }
 
-/* Animación del fondo */
-@keyframes bannerMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.hero-content h1 {
-  font-size: 3rem;
+/* CONTENIDO DEL BANNER */
+.banner-content h1 {
+  font-size: 2.8rem;
   font-weight: 800;
   margin-bottom: 10px;
   text-shadow: 0 3px 10px rgba(0,0,0,0.25);
+  animation: glowText 2.5s ease-in-out infinite alternate;
 }
 
-.subtitulo {
-  font-size: 1.4rem;
-  background: rgba(0,0,0,0.2);
-  display: inline-block;
-  padding: 8px 18px;
-  border-radius: 12px;
-  margin-bottom: 25px;
-  backdrop-filter: blur(3px);
+.banner-content p {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-.hero-btn {
+/* BOTONES */
+.banner-btn {
   display: inline-block;
-  padding: 15px 28px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  background: #ff69b4;
+  margin: 5px 10px;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  font-weight: 700;
   color: #fff;
+  background: var(--rosa);
   border-radius: 30px;
   text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   transition: 0.3s;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
 }
 
-.hero-btn:hover {
-  background: #ff1493;
+.banner-btn:hover {
+  background: var(--verde);
   transform: scale(1.08);
 }
-  
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.3rem;
-  }
-  .subtitulo {
-    font-size: 1.1rem;
-  }
+
+.wa-btn {
+  background: var(--amarillo);
+  color: #333;
 }
+
+.wa-btn:hover {
+  background: var(--rosa);
+  color: #fff;
+}
+
+/* GLOBOS */
+.globo {
+  position: absolute;
+  width: 50px;
+  height: 60px;
+  border-radius: 50%;
+  animation: flotando 4s ease-in-out infinite alternate;
+}
+
+.globo-left { left: 20px; top: 10px; background: var(--rosa); }
+.globo-right { right: 20px; top: 10px; background: var(--verde); }
+
+@keyframes flotando {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-12px); }
+}
+
+/* CONFETI */
+.confeti {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+      radial-gradient(circle, var(--amarillo) 20%, transparent 20%),
+      radial-gradient(circle, var(--rosa) 20%, transparent 20%),
+      radial-gradient(circle, var(--verde) 20%, transparent 20%);
+  background-size: 15px 15px;
+  background-position: 0 0, 20px 30px, 40px 15px;
+  animation: confetiMove 3s linear infinite;
+  opacity: 0.25;
+}
+
+@keyframes confetiMove {
+  from { background-position: 0 0, 20px 30px, 40px 15px; }
+  to { background-position: 0 50px, 20px 80px, 40px 60px; }
+}
+
+/* TEXTO GLOW */
+@keyframes glowText {
+  0% { text-shadow: 0 0 8px #fff; }
+  100% { text-shadow: 0 0 20px var(--amarillo); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .banner-content h1 { font-size: 2.2rem; }
+  .banner-content p { font-size: 1.1rem; }
+  .banner-btn { width: 80%; font-size: 1.05rem; padding: 12px 20px; }
+  .globo { display: none; } /* Menos saturación en móvil */
+}
+</style>
 
 
 
@@ -660,6 +738,7 @@ document.addEventListener('focus', function(e){
 
 </body>
 </html>
+
 
 
 
