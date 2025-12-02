@@ -2,35 +2,89 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<!-- Banner simplificado de prueba -->
-<div class="test-banner">
-  <div class="test-content">
-    <h1>✨ Agenda Abierta 2026</h1>
-    <a href="#presupuesto" class="btn">Pide tu presupuesto</a>
+<!-- Banner Agenda Abierta -->
+<div class="agendaabierta-banner">
+
+  <!-- Contenido principal -->
+  <div class="banner-content">
+    <h1>🗓 Agenda Abierta 2026 🎉</h1>
+    <p>¡Reserva tu fecha con Diviértete Animaciones!</p>
+    
+    <!-- Botones funcionales -->
+    <a href="#presupuesto" class="banner-btn">📩 Pide tu presupuesto</a>
+    <a href="https://wa.me/34648759373?text=Hola,%20quiero%20reservar%20mi%20fecha%20para%20la%20Agenda%20Abierta%202026" 
+       target="_blank" rel="noopener noreferrer" class="banner-btn wa-btn">📅 WhatsApp</a>
   </div>
+
 </div>
 
 <style>
-.test-banner {
+:root {
+  --rosa: #ff4fa3;
+  --amarillo: #ffeb3b;
+  --verde: #6bd36b;
+}
+
+/* CONTENEDOR GENERAL */
+.agendaabierta-banner {
   width: 100%;
-  padding: 40px 20px;
-  background: linear-gradient(135deg, #ff4fa3, #ffeb3b, #6bd36b);
+  padding: 60px 20px;
   text-align: center;
+  background: linear-gradient(135deg, var(--rosa), var(--amarillo), var(--verde));
   color: #fff;
+  font-family: 'Arial', sans-serif;
+  border-bottom: 4px solid var(--verde);
 }
 
-.test-content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
+/* CONTENIDO DEL BANNER */
+.banner-content h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.25);
 }
 
-.btn {
+.banner-content p {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* BOTONES */
+.banner-btn {
   display: inline-block;
-  padding: 12px 24px;
-  background: #ff4fa3;
+  margin: 5px 10px;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  font-weight: 700;
   color: #fff;
-  border-radius: 20px;
+  background: var(--rosa);
+  border-radius: 30px;
   text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.banner-btn:hover {
+  background: var(--verde);
+  transform: scale(1.08);
+}
+
+.wa-btn {
+  background: var(--amarillo);
+  color: #333;
+}
+
+.wa-btn:hover {
+  background: var(--rosa);
+  color: #fff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .banner-content h1 { font-size: 2.2rem; }
+  .banner-content p { font-size: 1.1rem; }
+  .banner-btn { width: 80%; font-size: 1.05rem; padding: 12px 20px; }
 }
 </style>
 
@@ -631,6 +685,7 @@ document.addEventListener('focus', function(e){
 
 </body>
 </html>
+
 
 
 
