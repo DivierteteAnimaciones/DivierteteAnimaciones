@@ -1,5 +1,132 @@
 <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Diviértete Animaciones</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Diviértete Animaciones - Pásatelo en grande con DIVIÉRTETE." />
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://www.divierteteanimaciones.com/logo_mejorado.png">
+  <link rel="apple-touch-icon" href="https://www.divierteteanimaciones.com/logo_mejorado.png">
+
+  <!-- Metadatos para redes sociales -->
+  <meta property="og:title" content="Diviértete Animaciones 🎈" />
+  <meta property="og:description" content="Animaciones infantiles, cuentacuentos, talleres, globoflexia y más diversión en Mallorca." />
+  <meta property="og:image" content="https://www.divierteteanimaciones.com/logo_mejorado.png" />
+  <meta property="og:url" content="https://www.divierteteanimaciones.com/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Diviértete Animaciones 🎉" />
+  <meta name="twitter:description" content="Pásatelo en grande con DIVIÉRTETE. Animaciones infantiles, cuentacuentos, talleres y mucho más." />
+  <meta name="twitter:image" content="https://www.divierteteanimaciones.com/logo_mejorado.png" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+  <style>
+    body { margin:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#fff8fb; color:#333; }
+
+    /* ---------- BANNER NAVIDAD ---------- */
+    .banner-navidad { position: relative; width: 100%; max-height: 520px; overflow: hidden; }
+    .banner-navidad img { width: 100%; height: auto; display: block; }
+    .banner-texto {
+      position: absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+      background: rgba(0,0,0,0.45); color:#fff; text-align:center;
+      padding:25px 30px; border-radius:15px; max-width:90%;
+    }
+    .banner-texto h1 { font-size:2.2rem; margin-bottom:15px; }
+    .banner-texto p { font-size:1.1rem; margin-bottom:20px; }
+    .btn-navidad { background:#e63946; color:white; padding:12px 26px; border-radius:30px; text-decoration:none; font-weight:bold; }
+    .btn-navidad:hover { background:#c62828; }
+    @media (max-width:768px) {
+      .banner-texto h1 { font-size:1.5rem; }
+      .banner-texto p { font-size:1rem; }
+    }
+
+    /* ---------- HEADER ---------- */
+    header { position:sticky; top:0; background-color:#ffc0cb; display:flex; align-items:center; justify-content:space-between; padding:10px 20px; z-index:1000; }
+    header img { height:50px; }
+    nav a { text-decoration:none; color:#333; font-weight:bold; margin:0 15px; }
+    nav a:hover { color:#007f4e; }
+    .menu-toggle { display:none; font-size:28px; color:white; cursor:pointer; background:none; border:none; z-index:1100; }
+    #overlay-menu { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#ffc0cb; flex-direction:column; align-items:center; justify-content:center; z-index:1050; }
+    #overlay-menu.show { display:flex; }
+    #overlay-menu a { font-size:2em; margin:20px 0; color:white; text-decoration:none; font-weight:bold; }
+    #overlay-menu a:hover { color:#007f4e; }
+    #overlay-menu .close-menu { position:absolute; top:20px; right:30px; font-size:2em; cursor:pointer; }
+
+    /* ---------- SECCIONES ---------- */
+    section { padding:50px 20px; max-width:1200px; margin:auto; position:relative; z-index:1; scroll-margin-top:70px; }
+    h2 { color:#e91e63; margin-bottom:20px; text-align:center; }
+    .sobre { text-align:center; }
+    .sobre img { width:100%; max-width:400px; border-radius:15px; display:block; margin:20px auto 0; }
+    .servicios { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+    .card { perspective:1000px; width:250px; height:250px; }
+    .card-inner { position:relative; width:100%; height:100%; transition:transform 0.8s; transform-style:preserve-3d; }
+    .card:hover .card-inner { transform:rotateY(180deg); }
+    .card-front, .card-back { position:absolute; width:100%; height:100%; backface-visibility:hidden; border-radius:10px; padding:20px; box-shadow:0 2px 5px rgba(0,0,0,0.1); background-color:#ffe6eb; display:flex; justify-content:center; align-items:center; text-align:center; }
+    .card-back { transform:rotateY(180deg); flex-direction:column; }
+    .card-back img { width:100%; max-height:80px; object-fit:cover; margin-top:10px; border-radius:8px; }
+    .galeria-container { position:relative; overflow:hidden; max-width:100%; }
+    .galeria-slider { display:flex; overflow-x:hidden; gap:10px; scroll-behavior:smooth; }
+    .foto-video { flex:0 0 auto; width:200px; }
+    .foto-video img, .foto-video video { width:100%; border-radius:10px; cursor:pointer; }
+    .galeria-container button { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.5); color:#fff; border:none; font-size:2em; padding:0 10px; cursor:pointer; border-radius:5px; z-index:10; }
+    #prev { left:10px; } #next { right:10px; }
+    .lightbox { display:none; position:fixed; z-index:2000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.8); justify-content:center; align-items:center; opacity:0; }
+    .lightbox.show { display:flex; animation:fadeInLightbox 0.6s forwards; }
+    @keyframes fadeInLightbox { from{opacity:0;} to{opacity:1;} }
+    .lightbox-content { max-width:90%; max-height:80vh; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.5); display:block; }
+    .lightbox-close { position:absolute; top:18px; right:30px; color:#fff; font-size:40px; font-weight:bold; cursor:pointer; z-index:2100; transition:0.3s; }
+    .lightbox-close:hover { color:#ff69b4; }
+    form { background-color:#ffe6eb; padding:20px; border-radius:15px; max-width:600px; margin:auto; }
+    form input, form textarea, form select, form button { display:block; width:100%; margin-bottom:15px; padding:10px; border-radius:8px; border:1px solid #ccc; }
+    form button { background:#ffc107; border:none; font-weight:bold; cursor:pointer; }
+    footer { text-align:center; padding:20px; background-color:#f8bbd0; }
+    #whatsapp { position:fixed; bottom:20px; right:20px; background:#25D366; color:white; border-radius:50%; width:60px; height:60px; display:flex; align-items:center; justify-content:center; font-size:30px; box-shadow:0 2px 10px rgba(0,0,0,0.3); z-index:1000; }
+    .contacto-info { text-align:center; }
+    .contacto-info img { max-width:150px; margin:10px auto; display:block; }
+    .contacto-info i.fab { font-size:24px; margin:10px; }
+    @media (max-width:1024px) { .card { width:45%; height:auto; } .card-inner { min-height:250px; } .card-back img { max-height:80px; } .foto-video { width:150px; } }
+    @media (max-width:768px) { .card { width:100%; height:auto; } .card-inner { min-height:250px; } .card-back img { max-height:80px; } .menu-toggle { display:block; } nav { display:none; } .foto-video { width:120px; } }
+
+  </style>
+</head>
+
+<body>
+
+<!-- ===== BANNER NAVIDAD ===== -->
+<section class="banner-navidad">
+  <img src="navidad.jpg" alt="Navidad Diviértete Animaciones">
+  <div class="banner-texto">
+    <h1>🎄 ¡¡Feliz Navidad!!>🎄 </h1>
+    <a href="#presupuesto" class="btn-navidad">Pide tu presupuesto</a>
+  </div>
+</section>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <img src="logo_mejorado.png" alt="Logo Diviértete" />
+  <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+  <nav id="menu">
+    <a href="#inicio">Inicio</a>
+    <a href="#sobre">Sobre Nosotros</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#galeria">Galería</a>
+    <a href="#presupuesto">Pide Presupuesto</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<div id="overlay-menu">
+  <span class="close-menu"><i class="fas fa-times"></i></span>
+  <a href="#inicio">Inicio</a>
+  <a href="#sobre">Sobre Nosotros</a>
+  <a href="#servicios">Servicios</a>
+  <a href="#galeria">Galería</a>
+  <a href="#presupuesto">Pide Presupuesto</a>
+  <a href="#contacto">Contacto</a>
+</div>
 
 </style>
 <script>
@@ -596,6 +723,7 @@ document.addEventListener('focus', function(e){
 
 </body>
 </html>
+
 
 
 
