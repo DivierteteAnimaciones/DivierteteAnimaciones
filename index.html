@@ -2,32 +2,55 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<!-- 🎄 Banner Feliz Navidad -->
-<div class="agendaabierta-banner">
+.banner-navidad {
+  background-image: url("img/banner-navidad.jpg"); /* cambia la imagen */
+  background-size: cover;
+  background-position: center;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
 
-  <div class="banner-content">
-    <h1>🎄 ¡Feliz Navidad! 🎅</h1>
+.banner-overlay {
+  background: rgba(0, 0, 0, 0.45);
+  color: white;
+  text-align: center;
+  padding: 40px;
+  max-width: 900px;
+  border-radius: 15px;
+}
 
-    <p>
-      La <strong>familia de Diviértete Animaciones</strong> te desea unas fiestas llenas
-      de magia, risas y momentos inolvidables.
-    </p>
+.banner-navidad h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
 
-    <p>
-      🎁 <strong>Reserva ahora y consigue un 10% de descuento</strong><br>
-      en animaciones para <strong>2026</strong>
-    </p>
+.banner-navidad h2 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  font-weight: 400;
+}
 
-    <!-- Botones -->
-    <a href="#presupuesto" class="banner-btn">📩 Pide tu presupuesto</a>
+.banner-navidad p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
 
-    <a href="https://wa.me/34648759373?text=Hola,%20quiero%20reservar%20mi%20fecha%20para%202026"
-       target="_blank" rel="noopener noreferrer"
-       class="banner-btn wa-btn">
-       📅 WhatsApp
-    </a>
-  </div>
+.btn-navidad {
+  background-color: #e63946;
+  color: white;
+  padding: 14px 30px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
 
+.btn-navidad:hover {
+  background-color: #c62828;
+}
 </div>
 
 
@@ -627,6 +650,7 @@ document.addEventListener('focus', function(e){
 
 </body>
 </html>
+
 
 
 
