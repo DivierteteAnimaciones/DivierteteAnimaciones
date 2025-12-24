@@ -1,4 +1,126 @@
 <!DOCTYPE html>
+<!-- ===== BANNER NAVIDAD ULTRA-COMPACTO ===== -->
+<section class="banner-navidad-compacto">
+  <div class="banner-texto-compacto">
+    🎅 ¡Feliz Navidad! 🎄
+    <div class="btns-compacto">
+      <a href="#presupuesto" class="btn-navidad-compacto">Pide tu presupuesto</a>
+      <a href="https://wa.me/+34648759373" target="_blank" class="btn-whatsapp-compacto">WhatsApp</a>
+    </div>
+  </div>
+  <canvas id="nieve-compacto"></canvas>
+</section>
+
+<style>
+/* Banner ultra-compacto */
+.banner-navidad-compacto {
+  position: relative;
+  width: 100%;
+  padding: 15px 10px;
+  background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+  text-align: center;
+  color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 15px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.btns-compacto {
+  margin-top: 8px;
+}
+
+.btn-navidad-compacto, .btn-whatsapp-compacto {
+  display: inline-block;
+  padding: 6px 14px;
+  margin: 3px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.btn-navidad-compacto { background-color: #e63946; }
+.btn-navidad-compacto:hover { background-color: #c62828; }
+
+.btn-whatsapp-compacto { background-color: #25D366; }
+.btn-whatsapp-compacto:hover { background-color: #1ebe5d; }
+
+/* Canvas para nieve */
+#nieve-compacto {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .banner-navidad-compacto { font-size: 0.9rem; padding: 12px 8px; }
+  .btn-navidad-compacto, .btn-whatsapp-compacto { padding: 5px 10px; font-size: 0.8rem; }
+}
+</style>
+
+<script>
+// Copos de nieve ultra-ligeros
+const canvasC = document.getElementById('nieve-compacto');
+const ctxC = canvasC.getContext('2d');
+let wC = canvasC.width = canvasC.offsetWidth;
+let hC = canvasC.height = canvasC.offsetHeight;
+
+const numCoposC = 30;
+const coposC = [];
+
+for(let i=0;i<numCoposC;i++){
+  coposC.push({
+    x: Math.random()*wC,
+    y: Math.random()*hC,
+    r: Math.random()*2 + 1,
+    d: Math.random()*2
+  });
+}
+
+function dibujarCoposC(){
+  ctxC.clearRect(0,0,wC,hC);
+  ctxC.fillStyle = "white";
+  ctxC.beginPath();
+  for(let i=0;i<numCoposC;i++){
+    let c = coposC[i];
+    ctxC.moveTo(c.x, c.y);
+    ctxC.arc(c.x, c.y, c.r, 0, Math.PI*2, true);
+  }
+  ctxC.fill();
+  moverCoposC();
+}
+
+let anguloC = 0;
+function moverCoposC(){
+  anguloC += 0.01;
+  for(let i=0;i<numCoposC;i++){
+    let c = coposC[i];
+    c.y += Math.cos(anguloC + c.d) + 0.5 + c.r/2;
+    c.x += Math.sin(anguloC) * 0.3;
+
+    if(c.x > wC+5 || c.x < -5 || c.y > hC){
+      c.x = Math.random()*wC;
+      c.y = -10;
+    }
+  }
+}
+
+setInterval(dibujarCoposC, 33);
+
+window.addEventListener('resize', () => {
+  wC = canvasC.width = canvasC.offsetWidth;
+  hC = canvasC.height = canvasC.offsetHeight;
+});
+</script>
+
 <!-- ===== HEADER ===== -->
 <header>
     </nav>
@@ -609,6 +731,7 @@ document.addEventListener('focus', function(e){
 
 </body>
 </html>
+
 
 
 
