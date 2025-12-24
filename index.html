@@ -1,25 +1,31 @@
 <!DOCTYPE html>
-<header>
-  <div id="overlay-menu">
-  <span class="close-menu"><i class="fas fa-times"></i></span>
-  <img src="logo_mejorado.png" alt="Logo Diviértete" />
+<header class="header-principal">
+
+  <!-- Logo -->
+  <img src="logo_mejorado.png" alt="Logo Diviértete Animaciones" class="logo-header">
+
+  <!-- 🎄 Banner Navidad -->
   <div class="banner-navidad-header">
     <span>🎅 ¡Feliz Navidad de parte de Diviértete Animaciones! 🎄</span>
-    <a href="#presupuesto" class="btn-navidad-header">Pide tu presupuesto</a>
-    <a href="https://wa.me/+34648759373" target="_blank" class="btn-whatsapp-header">WhatsApp</a>
 
-    <!-- Nieve animada -->
+    <a href="#presupuesto" class="btn-navidad-header">
+      Pide tu presupuesto
+    </a>
+
+    <a href="https://wa.me/34648759373" target="_blank" class="btn-whatsapp-header">
+      WhatsApp
+    </a>
+
     <div class="snowflakes" aria-hidden="true">
-      <div class="snowflake">❄</div>
-      <div class="snowflake">❄</div>
-      <div class="snowflake">❄</div>
-      <div class="snowflake">❄</div>
-      <div class="snowflake">❄</div>
-      <div class="snowflake">❄</div>
-      <div class="snowflake">❄</div>
+      <span class="snowflake">❄</span>
+      <span class="snowflake">❄</span>
+      <span class="snowflake">❄</span>
+      <span class="snowflake">❄</span>
+      <span class="snowflake">❄</span>
     </div>
   </div>
-  <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+
+  <!-- Menú -->
   <nav id="menu">
     <a href="#inicio">Inicio</a>
     <a href="#sobre">Sobre Nosotros</a>
@@ -28,8 +34,107 @@
     <a href="#presupuesto">Pide Presupuesto</a>
     <a href="#contacto">Contacto</a>
   </nav>
+
 </header>
+
 </style>
+/* ===== HEADER FIJO ===== */
+.header-principal {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #ffcbd4;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.logo-header {
+  height: 60px;
+}
+
+/* ===== MENÚ ===== */
+#menu {
+  display: flex;
+  gap: 18px;
+  margin-top: 6px;
+}
+
+#menu a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #000;
+}
+
+/* ===== BANNER NAVIDAD ===== */
+.banner-navidad-header {
+  width: 100%;
+  background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+  border-radius: 10px;
+  padding: 8px 10px;
+  margin: 6px 0;
+  color: #fff;
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-navidad-header,
+.btn-whatsapp-header {
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.75rem;
+}
+
+.btn-navidad-header {
+  background-color: #e63946;
+}
+
+.btn-whatsapp-header {
+  background-color: #25D366;
+}
+
+/* ===== NIEVE ===== */
+.snowflakes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  animation: snow 4s linear infinite;
+}
+
+.snowflake:nth-child(1) { left: 10%; animation-delay: 0s; }
+.snowflake:nth-child(2) { left: 30%; animation-delay: 1s; }
+.snowflake:nth-child(3) { left: 50%; animation-delay: 2s; }
+.snowflake:nth-child(4) { left: 70%; animation-delay: 0.5s; }
+.snowflake:nth-child(5) { left: 90%; animation-delay: 1.5s; }
+
+@keyframes snow {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(40px); opacity: 0; }
+}
+
+/* ===== ESPACIO PARA EL HEADER FIJO ===== */
+body {
+  padding-top: 160px;
+}
+
 <script>
 // Inicializar marquee dinámico
 const marquee = document.querySelector('.bf-marquee span');
@@ -700,6 +805,7 @@ document.addEventListener('focus', function(e){
 
 </body>
 </html>
+
 
 
 
