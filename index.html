@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <header>
-  <!-- Logo -->
+  <div id="overlay-menu">
+  <span class="close-menu"><i class="fas fa-times"></i></span>
   <img src="logo_mejorado.png" alt="Logo Diviértete" />
-
-  <!-- Banner navideño animado dentro del header -->
   <div class="banner-navidad-header">
     <span>🎅 ¡Feliz Navidad de parte de Diviértete Animaciones! 🎄</span>
     <a href="#presupuesto" class="btn-navidad-header">Pide tu presupuesto</a>
@@ -20,8 +19,6 @@
       <div class="snowflake">❄</div>
     </div>
   </div>
-
-  <!-- Menú de navegación -->
   <button class="menu-toggle"><i class="fas fa-bars"></i></button>
   <nav id="menu">
     <a href="#inicio">Inicio</a>
@@ -32,6 +29,13 @@
     <a href="#contacto">Contacto</a>
   </nav>
 </header>
+</style>
+<script>
+// Inicializar marquee dinámico
+const marquee = document.querySelector('.bf-marquee span');
+const text = marquee.textContent;
+marquee.textContent = text;
+</script>
 
 <style>
 /* Banner navideño animado */
@@ -110,32 +114,6 @@
   .btn-navidad-header, .btn-whatsapp-header { font-size:0.75rem; padding:3px 8px; }
 }
 </style>
-
-
-
-<!-- ===== HEADER ===== -->
-<header>
-    </nav>
-</header>
-
-<div id="overlay-menu">
-  <span class="close-menu"><i class="fas fa-times"></i></span>
-  <a href="#inicio">Inicio</a>
-  <a href="#sobre">Sobre Nosotros</a>
-  <a href="#servicios">Servicios</a>
-  <a href="#galeria">Galería</a>
-  <a href="#presupuesto">Pide Presupuesto</a>
-  <a href="#contacto">Contacto</a>
-</div>
-
-</style>
-<script>
-// Inicializar marquee dinámico
-const marquee = document.querySelector('.bf-marquee span');
-const text = marquee.textContent;
-marquee.textContent = text;
-</script>
-
 
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVB4L9KZ9E"></script>
@@ -724,6 +702,7 @@ document.addEventListener('focus', function(e){
 
 </body>
 </html>
+
 
 
 
