@@ -1,132 +1,116 @@
 <!DOCTYPE html>
-<!-- ===== BANNER NAVIDAD FIJO ULTRA-COMPACTO ===== -->
-<section class="banner-navidad-fijo">
-  <div class="banner-texto-fijo">
-    🎅 ¡Feliz Navidad de parte de Diviértete Animaciones! 🎄
-    <div class="btns-fijo">
-      <a href="#presupuesto" class="btn-navidad-fijo">Pide tu presupuesto</a>
-      <a href="https://wa.me/+34648759373" target="_blank" class="btn-whatsapp-fijo">WhatsApp</a>
+<header>
+  <!-- Logo -->
+  <img src="logo_mejorado.png" alt="Logo Diviértete" />
+
+  <!-- Banner navideño animado dentro del header -->
+  <div class="banner-navidad-header">
+    <span>🎅 ¡Feliz Navidad de parte de Diviértete Animaciones! 🎄</span>
+    <a href="#presupuesto" class="btn-navidad-header">Pide tu presupuesto</a>
+    <a href="https://wa.me/+34648759373" target="_blank" class="btn-whatsapp-header">WhatsApp</a>
+
+    <!-- Nieve animada -->
+    <div class="snowflakes" aria-hidden="true">
+      <div class="snowflake">❄</div>
+      <div class="snowflake">❄</div>
+      <div class="snowflake">❄</div>
+      <div class="snowflake">❄</div>
+      <div class="snowflake">❄</div>
+      <div class="snowflake">❄</div>
+      <div class="snowflake">❄</div>
     </div>
   </div>
-  <canvas id="nieve-fijo"></canvas>
-</section>
+
+  <!-- Menú de navegación -->
+  <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+  <nav id="menu">
+    <a href="#inicio">Inicio</a>
+    <a href="#sobre">Sobre Nosotros</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#galeria">Galería</a>
+    <a href="#presupuesto">Pide Presupuesto</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
 
 <style>
-/* Banner fijo ultra-compacto */
-.banner-navidad-fijo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 12px 10px;
-  background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+/* Banner navideño animado */
+.banner-navidad-header {
+  position: relative;
   text-align: center;
+  background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+  padding: 8px 10px;
+  font-size: 0.9rem;
   color: #fff;
-  z-index: 9999;
-  font-size: 0.95rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  margin: 5px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
   overflow: hidden;
+  z-index: 5;
 }
 
-.btns-fijo {
-  margin-top: 5px;
-}
-
-.btn-navidad-fijo, .btn-whatsapp-fijo {
-  display: inline-block;
-  padding: 5px 12px;
-  margin: 2px;
+.btn-navidad-header, .btn-whatsapp-header {
+  padding: 4px 10px;
   border-radius: 20px;
   font-weight: bold;
   text-decoration: none;
   color: #fff;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   transition: 0.3s;
 }
 
-.btn-navidad-fijo { background-color: #e63946; }
-.btn-navidad-fijo:hover { background-color: #c62828; }
+.btn-navidad-header { background-color: #e63946; }
+.btn-navidad-header:hover { background-color: #c62828; }
 
-.btn-whatsapp-fijo { background-color: #25D366; }
-.btn-whatsapp-fijo:hover { background-color: #1ebe5d; }
+.btn-whatsapp-header { background-color: #25D366; }
+.btn-whatsapp-header:hover { background-color: #1ebe5d; }
 
-/* Canvas para nieve */
-#nieve-fijo {
+/* Animación de nieve */
+.snowflakes {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
-  z-index: 1;
 }
 
-/* Ajuste del contenido debajo del banner fijo */
-body {
-  padding-top: 70px; /* ajustar según altura del banner */
+.snowflake {
+  position: absolute;
+  top: -10px;
+  font-size: 1rem;
+  color: white;
+  user-select: none;
+  animation-name: fall;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.snowflake:nth-child(1) { left: 10%; animation-delay: 0s; }
+.snowflake:nth-child(2) { left: 20%; animation-delay: 1s; }
+.snowflake:nth-child(3) { left: 35%; animation-delay: 2s; }
+.snowflake:nth-child(4) { left: 50%; animation-delay: 3s; }
+.snowflake:nth-child(5) { left: 65%; animation-delay: 4s; }
+.snowflake:nth-child(6) { left: 80%; animation-delay: 0.5s; }
+.snowflake:nth-child(7) { left: 90%; animation-delay: 1.5s; }
+
+@keyframes fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(50px) rotate(360deg); opacity: 0; }
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  .banner-navidad-fijo { font-size: 0.85rem; padding: 10px 8px; }
-  .btn-navidad-fijo, .btn-whatsapp-fijo { padding: 4px 10px; font-size: 0.75rem; }
-  body { padding-top: 60px; }
+@media (max-width:768px){
+  .banner-navidad-header { font-size:0.8rem; padding:6px 8px; gap:5px; }
+  .btn-navidad-header, .btn-whatsapp-header { font-size:0.75rem; padding:3px 8px; }
 }
 </style>
 
-<script>
-// Copos de nieve ligeros para banner fijo
-const canvasF = document.getElementById('nieve-fijo');
-const ctxF = canvasF.getContext('2d');
-let wF = canvasF.width = canvasF.offsetWidth;
-let hF = canvasF.height = canvasF.offsetHeight;
-
-const numCoposF = 25;
-const coposF = [];
-
-for(let i=0;i<numCoposF;i++){
-  coposF.push({
-    x: Math.random()*wF,
-    y: Math.random()*hF,
-    r: Math.random()*2 + 1,
-    d: Math.random()*2
-  });
-}
-
-function dibujarCoposF(){
-  ctxF.clearRect(0,0,wF,hF);
-  ctxF.fillStyle = "white";
-  ctxF.beginPath();
-  for(let i=0;i<numCoposF;i++){
-    let c = coposF[i];
-    ctxF.moveTo(c.x, c.y);
-    ctxF.arc(c.x, c.y, c.r, 0, Math.PI*2, true);
-  }
-  ctxF.fill();
-  moverCoposF();
-}
-
-let anguloF = 0;
-function moverCoposF(){
-  anguloF += 0.01;
-  for(let i=0;i<numCoposF;i++){
-    let c = coposF[i];
-    c.y += Math.cos(anguloF + c.d) + 0.5 + c.r/2;
-    c.x += Math.sin(anguloF) * 0.3;
-
-    if(c.x > wF+5 || c.x < -5 || c.y > hF){
-      c.x = Math.random()*wF;
-      c.y = -10;
-    }
-  }
-}
-
-setInterval(dibujarCoposF, 33);
-
-window.addEventListener('resize', () => {
-  wF = canvasF.width = canvasF.offsetWidth;
-  hF = canvasF.height = canvasF.offsetHeight;
-});
-</script>
 
 
 <!-- ===== HEADER ===== -->
@@ -740,6 +724,7 @@ document.addEventListener('focus', function(e){
 
 </body>
 </html>
+
 
 
 
