@@ -1,57 +1,58 @@
 <!DOCTYPE html>
-<!-- ===== BANNER NAVIDAD ULTRA-COMPACTO ===== -->
-<section class="banner-navidad-compacto">
-  <div class="banner-texto-compacto">
-    🎅 ¡Feliz Navidad! 🎄
-    <div class="btns-compacto">
-      <a href="#presupuesto" class="btn-navidad-compacto">Pide tu presupuesto</a>
-      <a href="https://wa.me/+34648759373" target="_blank" class="btn-whatsapp-compacto">WhatsApp</a>
+<!-- ===== BANNER NAVIDAD FIJO ULTRA-COMPACTO ===== -->
+<section class="banner-navidad-fijo">
+  <div class="banner-texto-fijo">
+    🎅 ¡Feliz Navidad de parte de Diviértete Animaciones! 🎄
+    <div class="btns-fijo">
+      <a href="#presupuesto" class="btn-navidad-fijo">Pide tu presupuesto</a>
+      <a href="https://wa.me/+34648759373" target="_blank" class="btn-whatsapp-fijo">WhatsApp</a>
     </div>
   </div>
-  <canvas id="nieve-compacto"></canvas>
+  <canvas id="nieve-fijo"></canvas>
 </section>
 
 <style>
-/* Banner ultra-compacto */
-.banner-navidad-compacto {
-  position: relative;
+/* Banner fijo ultra-compacto */
+.banner-navidad-fijo {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 15px 10px;
+  padding: 12px 10px;
   background: linear-gradient(120deg, #ff9a9e, #fad0c4);
   text-align: center;
   color: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 15px 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  font-size: 1rem;
+  z-index: 9999;
+  font-size: 0.95rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  overflow: hidden;
 }
 
-.btns-compacto {
-  margin-top: 8px;
+.btns-fijo {
+  margin-top: 5px;
 }
 
-.btn-navidad-compacto, .btn-whatsapp-compacto {
+.btn-navidad-fijo, .btn-whatsapp-fijo {
   display: inline-block;
-  padding: 6px 14px;
-  margin: 3px;
+  padding: 5px 12px;
+  margin: 2px;
   border-radius: 20px;
   font-weight: bold;
   text-decoration: none;
   color: #fff;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   transition: 0.3s;
 }
 
-.btn-navidad-compacto { background-color: #e63946; }
-.btn-navidad-compacto:hover { background-color: #c62828; }
+.btn-navidad-fijo { background-color: #e63946; }
+.btn-navidad-fijo:hover { background-color: #c62828; }
 
-.btn-whatsapp-compacto { background-color: #25D366; }
-.btn-whatsapp-compacto:hover { background-color: #1ebe5d; }
+.btn-whatsapp-fijo { background-color: #25D366; }
+.btn-whatsapp-fijo:hover { background-color: #1ebe5d; }
 
 /* Canvas para nieve */
-#nieve-compacto {
+#nieve-fijo {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
@@ -59,67 +60,74 @@
   z-index: 1;
 }
 
+/* Ajuste del contenido debajo del banner fijo */
+body {
+  padding-top: 70px; /* ajustar según altura del banner */
+}
+
 /* Responsive */
 @media (max-width: 768px) {
-  .banner-navidad-compacto { font-size: 0.9rem; padding: 12px 8px; }
-  .btn-navidad-compacto, .btn-whatsapp-compacto { padding: 5px 10px; font-size: 0.8rem; }
+  .banner-navidad-fijo { font-size: 0.85rem; padding: 10px 8px; }
+  .btn-navidad-fijo, .btn-whatsapp-fijo { padding: 4px 10px; font-size: 0.75rem; }
+  body { padding-top: 60px; }
 }
 </style>
 
 <script>
-// Copos de nieve ultra-ligeros
-const canvasC = document.getElementById('nieve-compacto');
-const ctxC = canvasC.getContext('2d');
-let wC = canvasC.width = canvasC.offsetWidth;
-let hC = canvasC.height = canvasC.offsetHeight;
+// Copos de nieve ligeros para banner fijo
+const canvasF = document.getElementById('nieve-fijo');
+const ctxF = canvasF.getContext('2d');
+let wF = canvasF.width = canvasF.offsetWidth;
+let hF = canvasF.height = canvasF.offsetHeight;
 
-const numCoposC = 30;
-const coposC = [];
+const numCoposF = 25;
+const coposF = [];
 
-for(let i=0;i<numCoposC;i++){
-  coposC.push({
-    x: Math.random()*wC,
-    y: Math.random()*hC,
+for(let i=0;i<numCoposF;i++){
+  coposF.push({
+    x: Math.random()*wF,
+    y: Math.random()*hF,
     r: Math.random()*2 + 1,
     d: Math.random()*2
   });
 }
 
-function dibujarCoposC(){
-  ctxC.clearRect(0,0,wC,hC);
-  ctxC.fillStyle = "white";
-  ctxC.beginPath();
-  for(let i=0;i<numCoposC;i++){
-    let c = coposC[i];
-    ctxC.moveTo(c.x, c.y);
-    ctxC.arc(c.x, c.y, c.r, 0, Math.PI*2, true);
+function dibujarCoposF(){
+  ctxF.clearRect(0,0,wF,hF);
+  ctxF.fillStyle = "white";
+  ctxF.beginPath();
+  for(let i=0;i<numCoposF;i++){
+    let c = coposF[i];
+    ctxF.moveTo(c.x, c.y);
+    ctxF.arc(c.x, c.y, c.r, 0, Math.PI*2, true);
   }
-  ctxC.fill();
-  moverCoposC();
+  ctxF.fill();
+  moverCoposF();
 }
 
-let anguloC = 0;
-function moverCoposC(){
-  anguloC += 0.01;
-  for(let i=0;i<numCoposC;i++){
-    let c = coposC[i];
-    c.y += Math.cos(anguloC + c.d) + 0.5 + c.r/2;
-    c.x += Math.sin(anguloC) * 0.3;
+let anguloF = 0;
+function moverCoposF(){
+  anguloF += 0.01;
+  for(let i=0;i<numCoposF;i++){
+    let c = coposF[i];
+    c.y += Math.cos(anguloF + c.d) + 0.5 + c.r/2;
+    c.x += Math.sin(anguloF) * 0.3;
 
-    if(c.x > wC+5 || c.x < -5 || c.y > hC){
-      c.x = Math.random()*wC;
+    if(c.x > wF+5 || c.x < -5 || c.y > hF){
+      c.x = Math.random()*wF;
       c.y = -10;
     }
   }
 }
 
-setInterval(dibujarCoposC, 33);
+setInterval(dibujarCoposF, 33);
 
 window.addEventListener('resize', () => {
-  wC = canvasC.width = canvasC.offsetWidth;
-  hC = canvasC.height = canvasC.offsetHeight;
+  wF = canvasF.width = canvasF.offsetWidth;
+  hF = canvasF.height = canvasF.offsetHeight;
 });
 </script>
+
 
 <!-- ===== HEADER ===== -->
 <header>
@@ -731,6 +739,7 @@ document.addEventListener('focus', function(e){
 
 </body>
 </html>
+
 
 
 
